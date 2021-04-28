@@ -46,7 +46,30 @@ Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem d
 ###### -> Verificar se o jogador perdeu o jogo a cada movimento
 
 
-**Design**
+**Princípios (SOLID)**
+
+
+###### -> S (The Single Responsibility Principle)
+
+Mapa
+
+Elemento
+
+...
+
+###### 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 **Diagrama UML**
