@@ -25,10 +25,25 @@ Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem d
 **Funcionalidades**
 
 
+##Salto Duplo
 
+##Agachamento
 
+##Salto
 
+##Apanhar Moedas
 
+##Deteção de Colisões
+
+##Desenhar
+
+##Alteração de Score(Incremento e Decremento)
+
+##Contador de Vida
+
+##HighScore
+
+##Verificar se o jogador perdeu o jogo a cada movimento
 
 
 **Design**
