@@ -36,6 +36,10 @@ Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem d
 
 **Diagrama UML**
 
+![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/DiagramaUML.png?raw=true)
+
+
+
 
 
 
