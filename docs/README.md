@@ -17,7 +17,7 @@ O objectivo do jogo é ir coletando tokens que aleatoriamente instanciam,que con
 Em termos de movimento, a personagem principal está estática horizontalmente e apenas apresenta movimentos verticais controlados pelo utilizador, seja o salto (tecla 'w') e agachamento (tecla 's').
 
 
-Os obstáculos que o jogador enfrenta estão dividos em dois tipos: **Obstáculos Perigosos** (retiram vida à personagem) e **Obstáculos Malandros** (roubam pontos do score do jogador).Nos obstáculos perigoso temos: barril (morre instantaneamente)e os cactos (retiram 1 unidade de vida).Nos obstáculos malandros temos: o Sócrates (reduz o score do jogador para 0) e o Carteirista (retira 10% do score do jogador).
+Os obstáculos que o jogador enfrenta estão dividos em dois tipos: **Obstáculos Perigosos** (retiram vida à personagem) e **Obstáculos Malandros** (roubam pontos do score do jogador).Nos obstáculos perigoso temos: barril (morre instantaneamente)e os cactos (retiram 1 unidade de vida).Nos obstáculos malandros temos: o Salteador (reduz o score do jogador para 0) e o Carteirista (retira 10% do score do jogador).
 
 Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem dos obstáculos pelo personagem vai aumentando o que dificulta a reação do jogador perante estes.
 
