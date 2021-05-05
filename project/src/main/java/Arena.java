@@ -27,14 +27,14 @@ public class Arena {
     }
 
 
-    private void ArenaDraw(TextGraphics graphics)
+    private void ArenaDraw(TextGraphics graph)
     {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
-        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
+        graph.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
+        graph.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
     }
 
-    public void draw(TextGraphics graphics)
+    public void draw(TextGraphics graph)
     {
-        ArenaDraw(graphics);
+        ArenaDraw(graph);
     }
 }

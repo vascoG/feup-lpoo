@@ -8,8 +8,8 @@ Health.java
  Health
 Pickpocket.java
  Pickpocket
-FixedObject.java
- FixedObject
+Cactus.java
+ Cactus
 Obstacle.java
  Obstacle
 Barrel.java
@@ -30,11 +30,11 @@ Element.java
  Element
 Score.java
  Score
-Cactus.java
- Cactus
-Arena.java
- Arena
+FixedObject.java
+ FixedObject
 Application.java
  Application
 Game.java
  Game
+Arena.java
+ Arena
