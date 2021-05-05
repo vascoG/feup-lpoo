@@ -21,20 +21,59 @@ public class Arena {
 
     private List<MobileObject> mobile;
 
+    private ArenaDrawer arenaDrawer;
+
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        this.arenaDrawer = new ArenaDrawer(this);
     }
 
-
-    private void ArenaDraw(TextGraphics graphics)
-    {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
-        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
+    public int getWidth() {
+        return width;
     }
 
-    public void draw(TextGraphics graphics)
-    {
-        ArenaDraw(graphics);
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public Cowboy getCowboy() {
+        return cowboy;
+    }
+
+    public void setCowboy(Cowboy cowboy) {
+        this.cowboy = cowboy;
+    }
+
+    public List<FixedObject> getFixed() {
+        return fixed;
+    }
+
+    public void setFixed(List<FixedObject> fixed) {
+        this.fixed = fixed;
+    }
+
+    public List<MobileObject> getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(List<MobileObject> mobile) {
+        this.mobile = mobile;
+    }
+
+    public ArenaDrawer getArenaDrawer() {
+        return arenaDrawer;
+    }
+
+    public void setArenaDrawer(ArenaDrawer arenaDrawer) {
+        this.arenaDrawer = arenaDrawer;
     }
 }
