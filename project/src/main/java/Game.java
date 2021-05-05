@@ -29,7 +29,7 @@ public class Game {
             //Configure Default Terminal Factory
             TerminalSize terminalSize = new TerminalSize(150, 40);
             DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-            arena = new Arena(150,40);
+            arena = new Arena(150,40, 7);
             Terminal terminal = terminalFactory.createTerminal();
             screen = new TerminalScreen(terminal);
 
@@ -49,7 +49,7 @@ public class Game {
     private void draw() throws IOException
     {
         screen.clear();
-        arena.draw(screen.newTextGraphics());
+        arena.getArenaDrawer().draw(screen.newTextGraphics());
         screen.refresh();
     }
 

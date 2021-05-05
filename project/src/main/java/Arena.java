@@ -23,9 +23,13 @@ public class Arena {
 
     private ArenaDrawer arenaDrawer;
 
-    public Arena(int width, int height) {
+    private int floorH;
+
+
+    public Arena(int width, int height, int floor) {
         this.width = width;
         this.height = height;
+        floorH = floor;
         this.arenaDrawer = new ArenaDrawer(this);
     }
 
