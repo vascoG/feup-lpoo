@@ -17,7 +17,7 @@ O objectivo do jogo é ir coletando tokens que aleatoriamente instanciam,que con
 Em termos de movimento, a personagem principal está estática horizontalmente e apenas apresenta movimentos verticais controlados pelo utilizador, seja o salto (tecla 'w') e agachamento (tecla 's').
 
 
-Os obstáculos que o jogador enfrenta estão dividos em dois tipos: **Obstáculos Perigosos** (retiram vida à personagem) e **Obstáculos Malandros** (roubam pontos do score do jogador).Nos obstáculos perigoso temos: barril (morre instantaneamente)e os cactos (retiram 1 unidade de vida).Nos obstáculos malandros temos: o Salteador (reduz o score do jogador para 0) e o Carteirista (retira 10% do score do jogador).
+Os obstáculos que o jogador enfrenta estão dividos em dois tipos: **Obstáculos Perigosos** (retiram vida à personagem) e **Obstáculos Ladros** (roubam pontos do score do jogador).Nos obstáculos perigoso temos: barril (morre instantaneamente)e os cactos (retiram 1 unidade de vida).Nos obstáculos malandros temos: o Salteador (reduz o score do jogador para 0) e o Carteirista (retira 10% do score do jogador).
 
 Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem dos obstáculos pelo personagem vai aumentando o que dificulta a reação do jogador perante estes.
 
@@ -51,25 +51,23 @@ Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem d
 
 ###### -> S (The Single Responsibility Principle)
 
-Mapa
+"The single responsibility principle" pode ser exemplificado no nosso jogo em classes como Elemento(guarda apenas a sua posição)
 
-Elemento
+###### -> O (The Open-Closed Principle)
 
-...
+"The open-closed principle" pode ser exemplificada no nosso jogo na medida em que mais um obstáculo envolvia apenas criar mais uma classe que estendia a classe Obstáculo 
 
-###### 
+###### -> L (The Liskov Substitution Principle)
 
+"The Liskov substitution principle" - Position na Classe Elemento
 
+###### -> I (The Interface  Segregation Principle)
 
+"The interface segregation principle" - Não exemplificado no Diagrama
 
+###### -> D (The Dependency Inversion Principle)
 
-
-
-
-
-
-
-
+"The dependency inversion principle" - Não exemplificado no Diagrama
 
 
 **Diagrama UML**
