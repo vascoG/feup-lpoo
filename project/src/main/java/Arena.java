@@ -69,11 +69,13 @@ public class Arena {
         this.mobile = mobile;
     }
 
+
     public ArenaDrawer getArenaDrawer() {
         return arenaDrawer;
     }
 
     public void setArenaDrawer(ArenaDrawer arenaDrawer) {
         this.arenaDrawer = arenaDrawer;
+
     }
 }
