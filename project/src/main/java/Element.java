@@ -1,6 +1,7 @@
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public abstract class Element {
 
     public Element(Position pos) {
         this.pos = pos;
+        sprite = new ArrayList<List<Character>>();
     }
 
     public Position getPos() {
@@ -20,8 +22,17 @@ public abstract class Element {
         this.pos = pos;
     }
 
-    public void readSpriteFromFile() {
-        //?
+    public void readSpriteFromFile(String filename) throws IOException {
+        InputStream is = getClass().getClassLoader().getResourceAsStream(filename);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        while (reader.ready()) {
+            String line = reader.readLine();
+            List<Character> newL = new ArrayList<Character>();
+            for(Character c: line.toCharArray()) {
+                newL.add(c);
+            }
+            sprite.add(newL);
+        }
     }
 
     public void draw(TextGraphics graphics) {
