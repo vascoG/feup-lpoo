@@ -1,15 +1,21 @@
+Health.java
+ Health
+Application.java
+ Application
+Position.java
+ Position
+Game.java
+ Game
 SunMoon.java
  SunMoon
 Thief.java
  Thief
 Floor.java
  Floor
-Health.java
- Health
 Pickpocket.java
  Pickpocket
-Cactus.java
- Cactus
+Arena.java
+ Arena
 Obstacle.java
  Obstacle
 Barrel.java
@@ -22,19 +28,15 @@ Cowboy.java
  Cowboy
 MobileObject.java
  MobileObject
-Position.java
- Position
-Title.java
- Title
-Element.java
- Element
+ArenaDrawer.java
+ ArenaDrawer
 Score.java
  Score
 FixedObject.java
  FixedObject
-Application.java
- Application
-Game.java
- Game
-Arena.java
- Arena
+Cactus.java
+ Cactus
+Element.java
+ Element
+Title.java
+ Title

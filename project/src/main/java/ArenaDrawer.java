@@ -18,11 +18,11 @@ public class ArenaDrawer {
         drawArena(graphics);
         drawFixed(arena.getFixed());
         drawMobiled(arena.getMobile());
-        drawCowboy(arena.getCowboy());
+        drawCowboy(graphics, arena.getCowboy());
     }
 
-    private void drawCowboy(Cowboy cowboy) {
-        
+    private void drawCowboy(TextGraphics graphics, Cowboy cowboy) {
+        cowboy.draw(graphics);
     }
 
     private void drawMobiled(List<MobileObject> mobile) {

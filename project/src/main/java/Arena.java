@@ -5,6 +5,8 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -26,11 +28,12 @@ public class Arena {
     private int floorH;
 
 
-    public Arena(int width, int height, int floor) {
+    public Arena(int width, int height, int floor) throws IOException {
         this.width = width;
         this.height = height;
         floorH = floor;
         this.arenaDrawer = new ArenaDrawer(this);
+        cowboy = new Cowboy(new Position(10, 30), new Health(3));
     }
 
     public int getWidth() {
