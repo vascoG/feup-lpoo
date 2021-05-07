@@ -4,8 +4,8 @@ Application.java
  Application
 Position.java
  Position
-Game.java
- Game
+Element.java
+ Element
 SunMoon.java
  SunMoon
 Thief.java
@@ -14,8 +14,8 @@ Floor.java
  Floor
 Pickpocket.java
  Pickpocket
-Arena.java
- Arena
+Cactus.java
+ Cactus
 Obstacle.java
  Obstacle
 Barrel.java
@@ -28,15 +28,20 @@ Cowboy.java
  Cowboy
 MobileObject.java
  MobileObject
-ArenaDrawer.java
- ArenaDrawer
+Title.java
+ Title
 Score.java
  Score
 FixedObject.java
  FixedObject
-Cactus.java
- Cactus
-Element.java
- Element
-Title.java
- Title
+GUI.java
+ GUI
+ GUI$MOVEMENT
+LanternaGUI.java
+ LanternaGUI
+ArenaDrawer.java
+ ArenaDrawer
+Game.java
+ Game
+Arena.java
+ Arena

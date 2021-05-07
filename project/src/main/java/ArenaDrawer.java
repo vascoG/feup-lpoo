@@ -36,5 +36,8 @@ public class ArenaDrawer {
     private void drawArena(TextGraphics graphics){
         graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(arena.getWidth(), arena.getHeight()), ' ');
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#5e3a14"));
+        graphics.fillRectangle(new TerminalPosition(0, arena.getHeight()- arena.getFloorH()), new TerminalSize(arena.getWidth(), arena.getFloorH()), ' ');
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
     }
 }

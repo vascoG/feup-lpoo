@@ -52,6 +52,10 @@ public class Arena {
         this.height = height;
     }
 
+    public int getFloorH() {
+        return floorH;
+    }
+
     public Cowboy getCowboy() {
         return cowboy;
     }
