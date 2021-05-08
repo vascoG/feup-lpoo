@@ -33,7 +33,7 @@ public class Arena {
         this.height = height;
         floorH = floor;
         this.arenaDrawer = new ArenaDrawer(this);
-        cowboy = new Cowboy(new Position(10, 30), new Health(3));
+        cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
     }
 
     public int getWidth() {

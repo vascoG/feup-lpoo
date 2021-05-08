@@ -35,7 +35,7 @@ public abstract class Element {
         }
     }
 
-    public void draw(TextGraphics graphics) {
+    public void draw(GUI gui) {
         //draws from bottom to top
         for(int line = sprite.size()-1; line >= 0; line--) {
             for(int col = 0; col < sprite.get(line).size(); col++) {
@@ -43,7 +43,8 @@ public abstract class Element {
                 if(ch == ' ') {
                     continue;
                 }
-                graphics.putString(new TerminalPosition(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch));
+                gui.drawText(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), "#000000");
+                //se calhar usamos so quadrados e em função da letra definia uma cor de fundo
             }
         }
     }

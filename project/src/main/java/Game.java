@@ -18,7 +18,7 @@ import static com.googlecode.lanterna.input.KeyType.*;
 public class Game {
 
 
-    private Screen screen;
+    private GUI gui;
     private KeyStroke key;
     private Arena arena;
 
@@ -26,18 +26,8 @@ public class Game {
     public Game() {
 
         try {
-            //Configure Default Terminal Factory
-            TerminalSize terminalSize = new TerminalSize(150, 40);
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+            gui = new LanternaGUI(150, 40);
             arena = new Arena(150,40, 7);
-            Terminal terminal = terminalFactory.createTerminal();
-            screen = new TerminalScreen(terminal);
-
-            screen.setCursorPosition(null);   // we don't need a cursor
-            screen.startScreen();             // screens must be started
-            screen.doResizeIfNecessary();     // resize screen if necessary
-
-            screen.refresh();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,9 +38,9 @@ public class Game {
 
     private void draw() throws IOException
     {
-        screen.clear();
-        arena.getArenaDrawer().draw(screen.newTextGraphics());
-        screen.refresh();
+        gui.clear();
+        arena.getArenaDrawer().draw(gui);
+        gui.refresh();
     }
 
     public void run()
@@ -60,7 +50,7 @@ public class Game {
             try
             {
                 draw();
-                key = screen.readInput();
+                key = gui.readInput();
                 /*
                 if(processKey() != 0)
                 {
@@ -69,7 +59,7 @@ public class Game {
                 */
                 if(key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
                 {
-                    screen.close();
+                    gui.close();
                 }
 
                 if(key.getKeyType() == KeyType.EOF)

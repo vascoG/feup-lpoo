@@ -1,3 +1,4 @@
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -27,10 +28,9 @@ public class LanternaGUI implements GUI{
     }
 
     private Terminal createTerminal(int width, int height) throws IOException {
-        TerminalSize terminalSize = new TerminalSize(width,height+1);
+        TerminalSize terminalSize = new TerminalSize(width,height);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-        Terminal terminal = terminalFactory.createTerminal();
-        return terminal;
+        return terminalFactory.createTerminal();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void refresh() throws IOException {
-        screen.refresh();;
+        screen.refresh();
     }
 
     @Override
@@ -71,5 +71,16 @@ public class LanternaGUI implements GUI{
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString(color));
         textGraphics.putString(position.getX(),position.getY(),text);
+    }
+    @Override
+    public void fillRectangle(Position position, Position size, String color, Character character) {
+        TextGraphics textGraphics = screen.newTextGraphics();
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString(color));
+        textGraphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(size.getX(), size.getY()), character);
+    }
+
+    @Override
+    public KeyStroke readInput() throws IOException {
+        return screen.readInput();
     }
 }
