@@ -1,18 +1,16 @@
-Application.java
- Application
+Position.java
+ Position
+Health.java
+ Health
+SunMoon.java
+ SunMoon
 GUI.java
  GUI
  GUI$MOVEMENT
-LanternaGUI.java
- LanternaGUI
-Health.java
- Health
-Position.java
- Position
-SunMoon.java
- SunMoon
 Thief.java
  Thief
+LanternaGUI.java
+ LanternaGUI
 Floor.java
  Floor
 Pickpocket.java
@@ -31,6 +29,8 @@ Cowboy.java
  Cowboy
 MobileObject.java
  MobileObject
+Application.java
+ Application
 ArenaDrawer.java
  ArenaDrawer
 Game.java

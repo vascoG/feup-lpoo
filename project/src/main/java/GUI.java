@@ -13,7 +13,7 @@ public interface GUI {
     MOVEMENT getNextMovement() throws IOException;
     void drawText(Position position, String text, String color);
     void fillRectangle(Position position, Position size, String color, Character character);
-    KeyStroke readInput() throws IOException;
+    KeyStroke pollInput() throws IOException;
 
 
     enum MOVEMENT{ UP, DOWN, DOUBLEUP, QUIT, NONE}

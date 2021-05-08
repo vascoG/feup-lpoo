@@ -14,6 +14,10 @@ import java.io.IOException;
 public class LanternaGUI implements GUI{
     private final Screen screen;
 
+    public LanternaGUI(Screen screen) {
+        this.screen = screen;
+    }
+
     public LanternaGUI(int width, int height) throws IOException {
         Terminal terminal = createTerminal(width,height);
         this.screen = createScreen(terminal);
@@ -50,7 +54,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public MOVEMENT getNextMovement() throws IOException {
-        KeyStroke keyStroke = screen.readInput();
+        KeyStroke keyStroke = screen.pollInput();
         if(keyStroke.getKeyType() == KeyType.EOF)
             return MOVEMENT.QUIT;
         if(keyStroke.getKeyType()!= KeyType.Character)
@@ -69,18 +73,18 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString(color));
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
         textGraphics.putString(position.getX(),position.getY(),text);
     }
     @Override
     public void fillRectangle(Position position, Position size, String color, Character character) {
         TextGraphics textGraphics = screen.newTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString(color));
+        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
         textGraphics.fillRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(size.getX(), size.getY()), character);
     }
 
     @Override
-    public KeyStroke readInput() throws IOException {
-        return screen.readInput();
+    public KeyStroke pollInput() throws IOException {
+        return screen.pollInput();
     }
 }

@@ -50,7 +50,7 @@ public class Game {
             try
             {
                 draw();
-                key = gui.readInput();
+                key = gui.pollInput();
                 /*
                 if(processKey() != 0)
                 {
