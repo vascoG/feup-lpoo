@@ -69,6 +69,26 @@ Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem d
 "The dependency inversion principle" - Não exemplificado no Diagrama
 
 
+
+**Modelo de design**
+
+	O desenho do nosso projeto está focado numa abordagem de generalização de classes, como base temos a classe Elemento que diverge para os 3 elementos principais que queremos apresentar ao utilizador (Cowboy, FixedObject, MobileObject).
+	
+	Em termos de desenhar estes objetos e a arena de jogo no ecrã do utilizador, a preocupação foi que classes como a classe Arena tivessem demasiada responsabilidade no que toca à execução do programa. Como solução, implementou-se uma Classe ArenaDrawer, cuja única responsabilidade é desenhar no ecrã a arena de jogo.
+	
+	Toda a parte gráfica do jogo passa pela interface GUI que implementa a classe LanternaGUI, esta por sua vez utiliza as funções da interface gráfica Lanterna  que gerem o terminal, como close(), refresh() e clear().
+
+
+**A funcionar**
+
+	Na versão atual do código está funcionar o display parcial da arena, display da personagem principal e reconhecimento de input do utilizador.
+	
+![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/JogoV1.png?raw=true)
+
+
+
+
+
 **Diagrama UML**
 
 ![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/DiagramaUML.png?raw=true)
