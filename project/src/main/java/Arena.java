@@ -99,11 +99,11 @@ public class Arena {
 
     }
 
-    public void cowboyJump() {
+    public void cowboyDown() {
         cowboy.moveDown();
     }
 
-    public void cowboyDown() {
+    public void cowboyJump() {
         cowboy.moveUp();
     }
 }

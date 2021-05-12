@@ -4,8 +4,10 @@ import java.io.IOException;
 public class Cowboy extends Element{
     Health health;
     int coinsCollected;
+    int yInitial ;
     public Cowboy(Position pos, Health h) throws IOException {
         super(pos);
+        yInitial = pos.getY();
         health = h;
         coinsCollected = 0;
         readSpriteFromFile("cowboy.txt");
@@ -34,5 +36,9 @@ public class Cowboy extends Element{
 
     public void moveUp() {
         pos.setY(pos.getY()-2);
+    }
+
+    public void resetY() {
+        pos.setY(yInitial);
     }
 }
