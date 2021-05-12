@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static com.googlecode.lanterna.input.KeyType.*;
+import static java.lang.Thread.sleep;
 
 public class Game {
 
@@ -43,6 +44,9 @@ public class Game {
         gui.refresh();
     }
 
+
+
+
     public void run()
     {
         while(true)
@@ -50,22 +54,23 @@ public class Game {
             try
             {
                 draw();
-                key = gui.readInput();
-                /*
-                if(processKey() != 0)
+                switch (gui.getNextMovement())
                 {
-                    screen.close();
-                }
-                */
-                if(key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')
-                {
-                    gui.close();
+                    case UP:
+                        arena.cowboyJump();
+                        break;
+                    case DOWN:
+                        arena.cowboyDown();
+                        break;
+                    case DOUBLEUP:
+                        break;
+                    case QUIT:
+                        gui.close();
+                        return;
+                    case NONE:
+                        break;
                 }
 
-                if(key.getKeyType() == KeyType.EOF)
-                {
-                    break;
-                }
 
             }catch (IOException e)
             {

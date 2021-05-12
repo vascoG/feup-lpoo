@@ -26,4 +26,12 @@ public class Cowboy extends Element{
     public void setCoinsCollected(int coinsCollected) {
         this.coinsCollected = coinsCollected;
     }
+
+    public void moveDown() {
+        pos.setY(pos.getY()+2);
+    }
+
+    public void moveUp() {
+        pos.setY(pos.getY()-2);
+    }
 }
