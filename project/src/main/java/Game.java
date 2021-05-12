@@ -51,6 +51,7 @@ public class Game {
     {   int FPS = 30;
         int frametime = 1000/FPS;
         boolean jumping = false;
+        boolean jumpingDown = false;
         long startJumpTime = 0;
         while(true)
         {
@@ -59,27 +60,31 @@ public class Game {
 
                 long startTime = System.currentTimeMillis();
 
-                if(jumping && (startTime-startJumpTime)>500)
+                if(jumping)
                 {
-                    jumping=false;
-                    arena.getCowboy().resetY();
+                    arena.getCowboy().pos.y--;
+                    if(arena.getCowboy().yInitial-10>=arena.getCowboy().pos.y) {
+                        jumping = false;
+                        jumpingDown = true;
+                    }
+                }
+                else if(jumpingDown)
+                {
+                    arena.getCowboy().pos.y++;
+                    if(arena.getCowboy().yInitial==arena.getCowboy().pos.y)
+                        jumpingDown=false;
                 }
                 draw();
-                if(!jumping) {
+                if(!jumping && !jumpingDown) {
                     switch (gui.getNextMovement()) {
                         case UP:
                             jumping = true;
-                            startJumpTime = System.currentTimeMillis();
-                            arena.cowboyJump();
                             break;
                         case DOWN:
                             arena.cowboyDown();
                             break;
                         case DOUBLEUP:
                             jumping = true;
-                            startJumpTime = System.currentTimeMillis();
-                            arena.cowboyJump();
-                            arena.cowboyJump();
                             break;
                         case QUIT:
                             gui.close();
