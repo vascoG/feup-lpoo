@@ -9,6 +9,7 @@ public class Cowboy extends Element{
         health = h;
         coinsCollected = 0;
         readSpriteFromFile("cowboy.txt");
+        colour="#000000";
     }
 
     public Health getHealth() {
