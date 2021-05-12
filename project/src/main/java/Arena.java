@@ -89,4 +89,12 @@ public class Arena {
         this.arenaDrawer = arenaDrawer;
 
     }
+
+    public void cowboyJump() {
+        cowboy.moveDown();
+    }
+
+    public void cowboyDown() {
+        cowboy.moveUp();
+    }
 }
