@@ -8,6 +8,7 @@ import java.util.List;
 public abstract class Element {
     Position pos; //left bottom corner
     List<List<Character>> sprite;
+    String colour;
 
     public Element(Position pos) {
         this.pos = pos;
@@ -40,10 +41,10 @@ public abstract class Element {
         for(int line = sprite.size()-1; line >= 0; line--) {
             for(int col = 0; col < sprite.get(line).size(); col++) {
                 Character ch = sprite.get(line).get(col);
-                if(ch == ' ') {
+                if(ch == '?') {
                     continue;
                 }
-                gui.drawText(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), "#000000");
+                gui.drawText(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour);
                 //se calhar usamos so quadrados e em função da letra definia uma cor de fundo
             }
         }

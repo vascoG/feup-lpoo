@@ -16,8 +16,8 @@ public class ArenaDrawer {
     public void draw(GUI gui)
     {
         drawArena(gui);
-        drawFixed(arena.getFixed());
-        drawMobiled(arena.getMobile());
+        drawFixed(gui, arena.getFixed());
+        drawMobiled(gui, arena.getMobile());
         drawCowboy(gui, arena.getCowboy());
     }
 
@@ -25,12 +25,16 @@ public class ArenaDrawer {
         cowboy.draw(gui);
     }
 
-    private void drawMobiled(List<MobileObject> mobile) {
-
+    private void drawMobiled(GUI gui, List<MobileObject> mobile) {
+        for(MobileObject obj: mobile) {
+            obj.draw(gui);
+        }
     }
 
-    private void drawFixed(List<FixedObject> fixed) {
-
+    private void drawFixed(GUI gui, List<FixedObject> fixed) {
+        for(FixedObject obj: fixed) {
+            obj.draw(gui);
+        }
     }
 
     private void drawArena(GUI gui){
