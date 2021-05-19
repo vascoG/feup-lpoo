@@ -12,6 +12,7 @@ public interface GUI {
     void close() throws IOException;
     MOVEMENT getNextMovement() throws IOException;
     void drawText(Position position, String text, String color);
+    void drawObj(Position position, String text, String color);
     void fillRectangle(Position position, Position size, String color, Character character);
     KeyStroke readInput() throws IOException;
 

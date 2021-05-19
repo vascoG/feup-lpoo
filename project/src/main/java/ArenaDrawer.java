@@ -19,6 +19,7 @@ public class ArenaDrawer {
         drawFixed(gui, arena.getFixed());
         drawMobiled(gui, arena.getMobile());
         drawCowboy(gui, arena.getCowboy());
+
     }
 
     private void drawCowboy(GUI gui, Cowboy cowboy) {
@@ -36,6 +37,7 @@ public class ArenaDrawer {
             obj.draw(gui);
         }
     }
+
 
     private void drawArena(GUI gui){
         gui.fillRectangle(new Position(0, 0), new Position(arena.getWidth(), arena.getHeight()), "#ffb700", ' ');

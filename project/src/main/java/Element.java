@@ -10,6 +10,7 @@ public abstract class Element {
     List<List<Character>> sprite;
     String colour;
 
+
     public Element(Position pos) {
         this.pos = pos;
         sprite = new ArrayList<List<Character>>();
@@ -36,6 +37,8 @@ public abstract class Element {
         }
     }
 
+
+
     public void draw(GUI gui) {
         //draws from bottom to top
         for(int line = sprite.size()-1; line >= 0; line--) {
@@ -44,7 +47,7 @@ public abstract class Element {
                 if(ch == '?') {
                     continue;
                 }
-                gui.drawText(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour);
+                gui.drawObj(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour);
                 //se calhar usamos so quadrados e em função da letra definia uma cor de fundo
             }
         }
