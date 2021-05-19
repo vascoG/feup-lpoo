@@ -23,6 +23,8 @@ public class Arena {
 
     private List<FixedObject> fixed;
 
+    private Score score;
+
     private List<MobileObject> mobile;
 
     private ArenaDrawer arenaDrawer;
@@ -42,7 +44,7 @@ public class Arena {
         mobile.add(new Cactus(new Position(16, height-floorH)));
         mobile.add(new Barrel(new Position(24, height-floorH)));
         fixed.add(new SunMoon(new Position(width-10, 6)));
-        fixed.add(new Score(new Position(10 ,6)));
+        score = new Score(new Position(10 ,6));
         mobile.add(new Pickpocket(new Position(40, height-floorH)));
         mobile.add(new Robber(new Position(60, height-floorH)));
         mobile.add(new Coin(new Position(70, height-floorH-20)));
@@ -101,6 +103,14 @@ public class Arena {
     public void setArenaDrawer(ArenaDrawer arenaDrawer) {
         this.arenaDrawer = arenaDrawer;
 
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void updateScore() {
+        this.score.updateScore();
     }
 
     public void cowboyDown() {
