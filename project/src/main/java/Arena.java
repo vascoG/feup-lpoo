@@ -114,6 +114,7 @@ public class Arena {
     }
 
     public void cowboyDown() {
+        if(cowboy.getPos().getY()>cowboy.yInitial)
         cowboy.moveDown();
     }
 

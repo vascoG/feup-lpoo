@@ -51,6 +51,8 @@ public class Game {
     {   int FPS = 30;
         int frametime = 1000/FPS;
         boolean jumping = false;
+        boolean jumpingDown = false;
+        boolean doubleJumping = false;
         long startJumpTime = 0;
         while(true)
         {
@@ -59,28 +61,40 @@ public class Game {
 
                 long startTime = System.currentTimeMillis();
 
-                if(jumping && (startTime-startJumpTime)>500)
+                if(jumping)
                 {
-                    jumping=false;
-                    arena.getCowboy().resetY();
+                    arena.getCowboy().pos.y--;
+                    if(arena.getCowboy().yInitial-10>=arena.getCowboy().pos.y) {
+                        jumping = false;
+                        jumpingDown = true;
+                    }
+                }
+                if(doubleJumping)
+                {
+                    arena.getCowboy().pos.y--;
+                    if(arena.getCowboy().yInitial-16>=arena.getCowboy().pos.y) {
+                        doubleJumping = false;
+                        jumpingDown = true;
+                    }
+                }
+                else if(jumpingDown)
+                {
+                    arena.getCowboy().pos.y++;
+                    if(arena.getCowboy().yInitial==arena.getCowboy().pos.y)
+                        jumpingDown=false;
                 }
                 draw();
-                if(!jumping) {
                     switch (gui.getNextMovement()) {
                         case UP:
+                            if(!jumpingDown)
                             jumping = true;
-                            startJumpTime = System.currentTimeMillis();
-                            arena.cowboyJump();
-                            arena.updateScore();
                             break;
                         case DOWN:
                             arena.cowboyDown();
                             break;
                         case DOUBLEUP:
-                            jumping = true;
-                            startJumpTime = System.currentTimeMillis();
-                            arena.cowboyJump();
-                            arena.cowboyJump();
+                            if(!jumpingDown)
+                            doubleJumping = true;
                             break;
                         case QUIT:
                             gui.close();
@@ -88,7 +102,7 @@ public class Game {
                         case NONE:
                             break;
                     }
-                }
+
                 long elaspedTime = System.currentTimeMillis() - startTime;
                 long sleepTime = frametime - elaspedTime;
                 try  {
