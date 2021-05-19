@@ -106,4 +106,12 @@ public class Arena {
     public void cowboyJump() {
         cowboy.moveUp();
     }
+
+    public void moveMobiles() {
+        for(int i = 0; i < mobile.size(); i++) {
+            MobileObject newM = mobile.get(i);
+            newM.setPos(new Position(newM.getPos().getX()-1, newM.getPos().getY()));
+            mobile.set(i, newM);
+        }
+    }
 }

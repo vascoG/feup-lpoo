@@ -56,14 +56,8 @@ public class Game {
         {
             try
             {
-
                 long startTime = System.currentTimeMillis();
-
-                if(jumping && (startTime-startJumpTime)>500)
-                {
-                    jumping=false;
-                    arena.getCowboy().resetY();
-                }
+                arena.moveMobiles();
                 draw();
                 if(!jumping) {
                     switch (gui.getNextMovement()) {
