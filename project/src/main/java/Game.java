@@ -52,16 +52,21 @@ public class Game {
         int frametime = 1000/FPS;
         boolean jumping = false;
         long startJumpTime = 0;
-        int minCount = 0;
+        long seconds = 0;
         while(true)
         {
             try
             {
                 long startTime = System.currentTimeMillis();
-                if(startTime/FPS*20*1000 > minCount) {
-                    minCount = Math.round(startTime/FPS*20*1000);
-                    arena.switchTime();
-                    arena.cleanupObjs();
+                long nseconds = startTime/1000;
+                if(nseconds > seconds) {
+                    seconds = nseconds;
+                    if(seconds%20 == 0) {
+                        arena.switchTime();
+                        arena.cleanupObjs();
+                        FPS+=10;
+                    }
+                    arena.spawnObjects();
                 }
                 arena.moveMobiles();
                 draw();
@@ -73,7 +78,7 @@ public class Game {
                             arena.cowboyJump();
                             break;
                         case DOWN:
-                            arena.spawnObjects();
+                            arena.cowboyDown();
                             break;
                         case DOUBLEUP:
                             jumping = true;

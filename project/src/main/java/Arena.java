@@ -39,14 +39,8 @@ public class Arena {
         mobile = new ArrayList<MobileObject>();
         fixed = new ArrayList<FixedObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
-        mobile.add(new Cactus(new Position(16, height-floorH)));
-        mobile.add(new Barrel(new Position(24, height-floorH)));
         fixed.add(new SunMoon(new Position(width-10, 6)));
         fixed.add(new Score(new Position(10 ,6)));
-        mobile.add(new Pickpocket(new Position(40, height-floorH)));
-        mobile.add(new Robber(new Position(60, height-floorH)));
-        mobile.add(new Coin(new Position(70, height-floorH-20)));
-        mobile.add(new Beer(new Position(100, height-floorH-20)));
     }
 
     public int getWidth() {
@@ -137,10 +131,10 @@ public class Arena {
     private void spawnObstacle() throws IOException {
         double gen = Math.random();
         double ext = Math.random();
-        int pos = (int) (width+Math.round(Math.random()*10));
+        int pos = (int) (width+Math.round(Math.random()*20));
         MobileObject mobileAdd;
-        if(gen > 0.7) {
-            if(ext > 0.9) {
+        if(gen > 0.75) {
+            if(ext > 0.8) {
                 mobileAdd = new Robber(new Position(pos, height-floorH));
             } else {
                 mobileAdd = new Pickpocket(new Position(pos, height-floorH));
@@ -159,7 +153,7 @@ public class Arena {
         double gen = Math.random();
         double ext = Math.random();
         int pos = (int) (width+Math.round(Math.random()*10));
-        int floater = (int) (width+Math.round(Math.random()*height/3));
+        int floater = (int) (Math.round(Math.random()*height/3));
         MobileObject mobileAdd;
         if(gen > 0.7) {
             if(ext > 0.7) {
