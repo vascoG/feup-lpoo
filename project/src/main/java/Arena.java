@@ -19,6 +19,8 @@ public class Arena {
 
     private Cowboy cowboy;
 
+
+
     private List<FixedObject> fixed;
 
     private List<MobileObject> mobile;
@@ -33,12 +35,14 @@ public class Arena {
         this.height = height;
         floorH = floor;
         this.arenaDrawer = new ArenaDrawer(this);
+
         mobile = new ArrayList<MobileObject>();
         fixed = new ArrayList<FixedObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
         mobile.add(new Cactus(new Position(16, height-floorH)));
         mobile.add(new Barrel(new Position(24, height-floorH)));
         fixed.add(new SunMoon(new Position(width-10, 6)));
+        fixed.add(new Score(new Position(10 ,6)));
         mobile.add(new Pickpocket(new Position(40, height-floorH)));
         mobile.add(new Robber(new Position(60, height-floorH)));
         mobile.add(new Coin(new Position(70, height-floorH-20)));
@@ -106,4 +110,6 @@ public class Arena {
     public void cowboyJump() {
         cowboy.moveUp();
     }
+
+
 }
