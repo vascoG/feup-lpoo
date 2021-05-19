@@ -84,15 +84,16 @@ public class Game {
                         jumpingDown=false;
                 }
                 draw();
-                if(!jumping && !jumpingDown && !doubleJumping) {
                     switch (gui.getNextMovement()) {
                         case UP:
+                            if(!jumpingDown)
                             jumping = true;
                             break;
                         case DOWN:
                             arena.cowboyDown();
                             break;
                         case DOUBLEUP:
+                            if(!jumpingDown)
                             doubleJumping = true;
                             break;
                         case QUIT:
@@ -101,7 +102,7 @@ public class Game {
                         case NONE:
                             break;
                     }
-                }
+
                 long elaspedTime = System.currentTimeMillis() - startTime;
                 long sleepTime = frametime - elaspedTime;
                 try  {
