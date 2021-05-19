@@ -58,9 +58,10 @@ public class Game {
             try
             {
                 long startTime = System.currentTimeMillis();
-                if(startTime/FPS*60*1000 > minCount) {
-                    minCount = Math.round(startTime/FPS*60*1000);
+                if(startTime/FPS*20*1000 > minCount) {
+                    minCount = Math.round(startTime/FPS*20*1000);
                     arena.switchTime();
+                    arena.cleanupObjs();
                 }
                 arena.moveMobiles();
                 draw();
@@ -72,7 +73,7 @@ public class Game {
                             arena.cowboyJump();
                             break;
                         case DOWN:
-                            arena.cowboyDown();
+                            arena.spawnObjects();
                             break;
                         case DOUBLEUP:
                             jumping = true;

@@ -39,13 +39,7 @@ public class Arena {
         mobile = new ArrayList<MobileObject>();
         fixed = new ArrayList<FixedObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
-        mobile.add(new Cactus(new Position(16, height-floorH)));
-        mobile.add(new Barrel(new Position(24, height-floorH)));
         fixed.add(new SunMoon(new Position(width-10, 6)));
-        mobile.add(new Pickpocket(new Position(40, height-floorH)));
-        mobile.add(new Robber(new Position(60, height-floorH)));
-        mobile.add(new Coin(new Position(70, height-floorH-20)));
-        mobile.add(new Beer(new Position(100, height-floorH-20)));
     }
 
     public int getWidth() {
@@ -129,6 +123,57 @@ public class Arena {
                 SunMoon newI = (SunMoon) fixed.get(i);
                 newI.switchState();
                 fixed.set(i, newI);
+            }
+        }
+    }
+
+    private void spawnObstacle() throws IOException {
+        double gen = Math.random();
+        double ext = Math.random();
+        int pos = (int) (width+Math.round(Math.random()*10));
+        MobileObject mobileAdd;
+        if(gen > 0.7) {
+            if(ext > 0.9) {
+                mobileAdd = new Robber(new Position(pos, height-floorH));
+            } else {
+                mobileAdd = new Pickpocket(new Position(pos, height-floorH));
+            }
+        } else {
+            if(ext > 0.95) {
+                mobileAdd = new Barrel(new Position(pos, height-floorH));
+            } else {
+                mobileAdd = new Cactus(new Position(pos, height-floorH));
+            }
+        }
+        mobile.add(mobileAdd);
+    }
+
+    private void spawnBonus() throws IOException {
+        double gen = Math.random();
+        double ext = Math.random();
+        int pos = (int) (width+Math.round(Math.random()*10));
+        int floater = (int) (width+Math.round(Math.random()*height/3));
+        MobileObject mobileAdd;
+        if(gen > 0.7) {
+            if(ext > 0.7) {
+                mobileAdd = new Beer(new Position(pos, height-floorH*2-floater));
+            } else {
+                mobileAdd = new Coin(new Position(pos, height-floorH*2-floater));
+            }
+            mobile.add(mobileAdd);
+        }
+    }
+
+    public void spawnObjects() throws IOException {
+        spawnObstacle();
+        spawnBonus();
+    }
+
+    public void cleanupObjs() {
+        for(int i = 0; i < mobile.size(); i++) {
+            if(mobile.get(i).getPos().getX() < -10) {
+                mobile.remove(i);
+                i--;
             }
         }
     }
