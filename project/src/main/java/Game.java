@@ -71,6 +71,7 @@ public class Game {
                             jumping = true;
                             startJumpTime = System.currentTimeMillis();
                             arena.cowboyJump();
+                            arena.updateScore();
                             break;
                         case DOWN:
                             arena.cowboyDown();

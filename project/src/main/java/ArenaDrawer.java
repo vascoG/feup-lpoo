@@ -36,6 +36,8 @@ public class ArenaDrawer {
         for(FixedObject obj: fixed) {
             obj.draw(gui);
         }
+
+        arena.getScore().draw(gui);
     }
 
 
