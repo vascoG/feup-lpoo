@@ -27,8 +27,11 @@ public class Arena {
 
     private int floorH;
 
+    private boolean night;
+
 
     public Arena(int width, int height, int floor) throws IOException {
+        night = false;
         this.width = width;
         this.height = height;
         floorH = floor;
@@ -112,6 +115,21 @@ public class Arena {
             MobileObject newM = mobile.get(i);
             newM.setPos(new Position(newM.getPos().getX()-1, newM.getPos().getY()));
             mobile.set(i, newM);
+        }
+    }
+
+    public boolean day() {
+        return !night;
+    }
+
+    public void switchTime() {
+        night = !night;
+        for(int i = 0; i < fixed.size(); i++) {
+            if(fixed.get(i) instanceof SunMoon) {
+                SunMoon newI = (SunMoon) fixed.get(i);
+                newI.switchState();
+                fixed.set(i, newI);
+            }
         }
     }
 }

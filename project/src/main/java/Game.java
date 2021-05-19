@@ -52,11 +52,16 @@ public class Game {
         int frametime = 1000/FPS;
         boolean jumping = false;
         long startJumpTime = 0;
+        int minCount = 0;
         while(true)
         {
             try
             {
                 long startTime = System.currentTimeMillis();
+                if(startTime/FPS*60*1000 > minCount) {
+                    minCount = Math.round(startTime/FPS*60*1000);
+                    arena.switchTime();
+                }
                 arena.moveMobiles();
                 draw();
                 if(!jumping) {

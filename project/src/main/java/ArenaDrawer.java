@@ -38,7 +38,12 @@ public class ArenaDrawer {
     }
 
     private void drawArena(GUI gui){
-        gui.fillRectangle(new Position(0, 0), new Position(arena.getWidth(), arena.getHeight()), "#ffb700", ' ');
+        String background;
+        if(arena.day())
+            background = "#ffb700";
+        else
+            background = "#40317d";
+        gui.fillRectangle(new Position(0, 0), new Position(arena.getWidth(), arena.getHeight()), background, ' ');
         gui.fillRectangle(new Position(0, arena.getHeight()- arena.getFloorH()), new Position(arena.getWidth(), arena.getFloorH()), "#5e3a14", ' ');
         /**graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(arena.getWidth(), arena.getHeight()), ' ');
