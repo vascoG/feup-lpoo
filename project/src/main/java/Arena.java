@@ -19,7 +19,13 @@ public class Arena {
 
     private Cowboy cowboy;
 
+
+
     private List<FixedObject> fixed;
+
+    private Score score;
+  
+    private SunMoon sunmoon;
 
     private List<MobileObject> mobile;
 
@@ -36,11 +42,12 @@ public class Arena {
         this.height = height;
         floorH = floor;
         this.arenaDrawer = new ArenaDrawer(this);
+
         mobile = new ArrayList<MobileObject>();
         fixed = new ArrayList<FixedObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
         fixed.add(new SunMoon(new Position(width-10, 6)));
-        fixed.add(new Score(new Position(10 ,6)));
+        score = new Score(new Position(10 ,6));
     }
 
     public int getWidth() {
@@ -97,14 +104,23 @@ public class Arena {
 
     }
 
+    public Score getScore() {
+        return score;
+    }
+
+    public void updateScore() {
+        this.score.updateScore();
+    }
+
     public void cowboyDown() {
+        if(cowboy.getPos().getY()>cowboy.yInitial)
         cowboy.moveDown();
     }
 
     public void cowboyJump() {
         cowboy.moveUp();
     }
-
+  
     public void moveMobiles() {
         for(int i = 0; i < mobile.size(); i++) {
             MobileObject newM = mobile.get(i);
@@ -119,13 +135,7 @@ public class Arena {
 
     public void switchTime() {
         night = !night;
-        for(int i = 0; i < fixed.size(); i++) {
-            if(fixed.get(i) instanceof SunMoon) {
-                SunMoon newI = (SunMoon) fixed.get(i);
-                newI.switchState();
-                fixed.set(i, newI);
-            }
-        }
+        sunmoon.switchstate();
     }
 
     private void spawnObstacle() throws IOException {

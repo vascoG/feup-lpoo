@@ -35,7 +35,7 @@ public class Cowboy extends Element{
     }
 
     public void moveUp() {
-        pos.setY(pos.getY()-2);
+        pos.setY(pos.getY()-10);
     }
 
     public void resetY() {
