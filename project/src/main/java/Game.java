@@ -54,13 +54,21 @@ public class Game {
         boolean jumpingDown = false;
         boolean doubleJumping = false;
         long startJumpTime = 0;
+        long seconds = 0;
         while(true)
         {
             try
             {
-
                 long startTime = System.currentTimeMillis();
-
+                long nseconds = startTime/1000;
+                if(nseconds > seconds) {
+                    seconds = nseconds;
+                    if(seconds%20 == 0) {
+                        arena.switchTime();
+                        arena.cleanupObjs();
+                        FPS+=10;
+                    }
+                    arena.spawnObjects();
                 if(jumping)
                 {
                     arena.getCowboy().pos.y--;
@@ -83,6 +91,7 @@ public class Game {
                     if(arena.getCowboy().yInitial==arena.getCowboy().pos.y)
                         jumpingDown=false;
                 }
+                arena.moveMobiles();
                 draw();
                     switch (gui.getNextMovement()) {
                         case UP:
