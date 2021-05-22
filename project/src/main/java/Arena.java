@@ -135,7 +135,7 @@ public class Arena {
 
     public void switchTime() {
         night = !night;
-        sunmoon.switchstate();
+        sunmoon.switchState();
     }
 
     private void spawnObstacle() throws IOException {
@@ -187,5 +187,27 @@ public class Arena {
                 i--;
             }
         }
+    }
+
+    public void iterateCollisions() {
+        for(MobileObject mob: mobile) {
+            checkForHit(mob);
+        }
+    }
+
+    private void checkForHit(MobileObject mob) {
+        if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getWidth(), mob.getWidth(), 'x')) {
+            if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight(), mob.getHeight(), 'y')) {
+                mob.hit(cowboy);
+            }
+        }
+    }
+
+    private boolean collCheck(Position a, Position b, int whA, int whB, Character type) {
+        if(type == 'x')
+            return a.getX() + whA > b.getX() && a.getX() < b.getX() + whB;
+        else if(type == 'y')
+            return a.getY() + whA > b.getY() && a.getY() < b.getY() + whB;
+        return false;
     }
 }

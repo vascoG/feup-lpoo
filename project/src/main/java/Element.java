@@ -7,6 +7,17 @@ import java.util.List;
 
 public abstract class Element {
     Position pos; //left bottom corner
+    int width;
+    int height;
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     List<List<Character>> sprite;
     String colour;
 
@@ -14,6 +25,8 @@ public abstract class Element {
     public Element(Position pos) {
         this.pos = pos;
         sprite = new ArrayList<List<Character>>();
+        width = 0;
+        height = 0;
     }
 
     public Position getPos() {
@@ -30,10 +43,15 @@ public abstract class Element {
         while (reader.ready()) {
             String line = reader.readLine();
             List<Character> newL = new ArrayList<Character>();
+            int curwidth = 0;
             for(Character c: line.toCharArray()) {
                 newL.add(c);
+                curwidth++;
             }
+            if(curwidth > width)
+                width = curwidth;
             sprite.add(newL);
+            height++;
         }
     }
 
