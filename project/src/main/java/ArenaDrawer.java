@@ -16,7 +16,7 @@ public class ArenaDrawer {
     public void draw(GUI gui)
     {
         drawArena(gui);
-        drawFixed(gui, arena.getFixed());
+        //drawFixed(gui);
         drawMobiled(gui, arena.getMobile());
         drawCowboy(gui, arena.getCowboy());
 
@@ -32,13 +32,11 @@ public class ArenaDrawer {
         }
     }
 
-    private void drawFixed(GUI gui, List<FixedObject> fixed) {
-        for(FixedObject obj: fixed) {
-            obj.draw(gui);
-        }
+    /**private void drawFixed(GUI gui) {
+        arena.getSunmoon().draw(gui);
 
-        arena.getScore().draw(gui);
-    }
+        arena.getScore().draw(gui, arena.isNight());
+    }**/
 
 
     private void drawArena(GUI gui){
@@ -49,6 +47,8 @@ public class ArenaDrawer {
             background = "#40317d";
         gui.fillRectangle(new Position(0, 0), new Position(arena.getWidth(), arena.getHeight()), background, ' ');
         gui.fillRectangle(new Position(0, arena.getHeight()- arena.getFloorH()), new Position(arena.getWidth(), arena.getFloorH()), "#5e3a14", ' ');
+        arena.getSunmoon().draw(gui);
+        arena.getScore().draw(gui, background);
         /**graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(arena.getWidth(), arena.getHeight()), ' ');
         graphics.setBackgroundColor(TextColor.Factory.fromString("#5e3a14"));

@@ -19,13 +19,13 @@ public class Arena {
 
     private Cowboy cowboy;
 
-
-
-    private List<FixedObject> fixed;
-
     private Score score;
   
     private SunMoon sunmoon;
+
+    public SunMoon getSunmoon() {
+        return sunmoon;
+    }
 
     private List<MobileObject> mobile;
 
@@ -35,6 +35,9 @@ public class Arena {
 
     private boolean night;
 
+    public boolean isNight() {
+        return night;
+    }
 
     public Arena(int width, int height, int floor) throws IOException {
         night = false;
@@ -44,9 +47,8 @@ public class Arena {
         this.arenaDrawer = new ArenaDrawer(this);
 
         mobile = new ArrayList<MobileObject>();
-        fixed = new ArrayList<FixedObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
-        fixed.add(new SunMoon(new Position(width-10, 6)));
+        sunmoon = new SunMoon(new Position(width-10, 6));
         score = new Score(new Position(10 ,6));
     }
 
@@ -78,13 +80,13 @@ public class Arena {
         this.cowboy = cowboy;
     }
 
-    public List<FixedObject> getFixed() {
+    /**public List<FixedObject> getFixed() {
         return fixed;
     }
 
     public void setFixed(List<FixedObject> fixed) {
         this.fixed = fixed;
-    }
+    }**/
 
     public List<MobileObject> getMobile() {
         return mobile;
@@ -135,7 +137,7 @@ public class Arena {
 
     public void switchTime() {
         night = !night;
-        sunmoon.switchstate();
+        sunmoon.switchState();
     }
 
     private void spawnObstacle() throws IOException {
@@ -187,5 +189,28 @@ public class Arena {
                 i--;
             }
         }
+    }
+
+    public void iterateCollisions() {
+        for(MobileObject mob: mobile) {
+            checkForHit(mob);
+        }
+    }
+
+    private void checkForHit(MobileObject mob) {
+        if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getWidth(), mob.getWidth(), 'x')) {
+            if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight(), mob.getHeight(), 'y')) {
+                mob.hit(cowboy);
+                mobile.remove(mob);
+            }
+        }
+    }
+
+    private boolean collCheck(Position a, Position b, int whA, int whB, Character type) {
+        if(type == 'x')
+            return a.getX() + whA > b.getX() && a.getX() < b.getX() + whB;
+        else if(type == 'y')
+            return a.getY() + whA > b.getY() && a.getY() < b.getY() + whB;
+        return false;
     }
 }
