@@ -199,6 +199,7 @@ public class Arena {
         if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getWidth(), mob.getWidth(), 'x')) {
             if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight(), mob.getHeight(), 'y')) {
                 mob.hit(cowboy);
+                mobile.remove(mob);
             }
         }
     }
