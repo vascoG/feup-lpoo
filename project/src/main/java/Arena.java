@@ -19,13 +19,13 @@ public class Arena {
 
     private Cowboy cowboy;
 
-
-
-    private List<FixedObject> fixed;
-
     private Score score;
   
     private SunMoon sunmoon;
+
+    public SunMoon getSunmoon() {
+        return sunmoon;
+    }
 
     private List<MobileObject> mobile;
 
@@ -35,6 +35,9 @@ public class Arena {
 
     private boolean night;
 
+    public boolean isNight() {
+        return night;
+    }
 
     public Arena(int width, int height, int floor) throws IOException {
         night = false;
@@ -44,9 +47,8 @@ public class Arena {
         this.arenaDrawer = new ArenaDrawer(this);
 
         mobile = new ArrayList<MobileObject>();
-        fixed = new ArrayList<FixedObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
-        fixed.add(new SunMoon(new Position(width-10, 6)));
+        sunmoon = new SunMoon(new Position(width-10, 6));
         score = new Score(new Position(10 ,6));
     }
 
@@ -78,13 +80,13 @@ public class Arena {
         this.cowboy = cowboy;
     }
 
-    public List<FixedObject> getFixed() {
+    /**public List<FixedObject> getFixed() {
         return fixed;
     }
 
     public void setFixed(List<FixedObject> fixed) {
         this.fixed = fixed;
-    }
+    }**/
 
     public List<MobileObject> getMobile() {
         return mobile;

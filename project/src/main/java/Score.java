@@ -18,7 +18,8 @@ public class Score extends FixedObject{
 
     }
 
-    public void draw(GUI gui)  {
+    public void draw(GUI gui, String background)  {
+        colour = background;
         //draws from bottom to top
 
             List<List<Character>>sprite_copy = clone(sprite);
@@ -31,7 +32,6 @@ public class Score extends FixedObject{
                     continue;
                 }
                 gui.drawText(new Position(pos.getX()+col, pos.getY()-(sprite_copy.size())), String.valueOf(ch), colour);
-                //se calhar usamos so quadrados e em função da letra definia uma cor de fundo
             }
 
 

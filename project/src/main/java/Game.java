@@ -65,7 +65,6 @@ public class Game {
                         arena.cleanupObjs();
                         FPS += 10;
                     }
-                    arena.spawnObjects();
                     if (jumping) {
                         arena.getCowboy().pos.y--;
                         if (arena.getCowboy().yInitial - 10 >= arena.getCowboy().pos.y) {
@@ -84,6 +83,7 @@ public class Game {
                         if (arena.getCowboy().yInitial == arena.getCowboy().pos.y)
                             jumpingDown = false;
                     }
+                    arena.spawnObjects();
                     arena.moveMobiles();
                     arena.iterateCollisions();
                     draw();
