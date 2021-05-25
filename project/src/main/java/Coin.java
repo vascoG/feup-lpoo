@@ -6,6 +6,7 @@ public class Coin extends Collect{
         super(pos);
         readSpriteFromFile("coin.txt");
         colour="#f2ff00";
+        fcolour="#000000";
     }
     void hit(Cowboy cowboy) {
         cowboy.setCoinsCollected(cowboy.getCoinsCollected()+1);

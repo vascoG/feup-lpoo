@@ -20,6 +20,7 @@ public abstract class Element {
 
     List<List<Character>> sprite;
     String colour;
+    String fcolour;
 
 
     public Element(Position pos) {
@@ -27,6 +28,7 @@ public abstract class Element {
         sprite = new ArrayList<List<Character>>();
         width = 0;
         height = 0;
+        fcolour = "#FFFFFF";
     }
 
     public Position getPos() {
@@ -65,7 +67,7 @@ public abstract class Element {
                 if(ch == '?') {
                     continue;
                 }
-                gui.drawObj(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour);
+                gui.drawObj(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour, fcolour);
             }
         }
     }
