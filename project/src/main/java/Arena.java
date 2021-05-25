@@ -200,8 +200,8 @@ public class Arena {
     }
 
     private boolean checkForHit(MobileObject mob) {
-        if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getWidth(), mob.getWidth(), 'x')) {
-            if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight(), mob.getHeight(), 'y')) {
+        if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getWidth()-1, mob.getWidth()-1, 'x')) {
+            if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight()-1, mob.getHeight()-1, 'y')) {
                 mob.hit(cowboy);
                 mobile.remove(mob);
                 return true;
