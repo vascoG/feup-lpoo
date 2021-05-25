@@ -178,8 +178,8 @@ public class Arena {
         int pos = (int) (width+Math.round(Math.random()*10));
         int floater = (int) (Math.round(Math.random()*height/3));
         MobileObject mobileAdd;
-        if(gen > 0.7) {
-            if(ext > 0.7) {
+        if(gen > 0.4) {
+            if(ext > 0.9) {
                 mobileAdd = new Beer(new Position(pos, height-floorH*2-floater));
             } else {
                 mobileAdd = new Coin(new Position(pos, height-floorH*2-floater));
@@ -212,7 +212,7 @@ public class Arena {
 
     private boolean checkForHit(MobileObject mob) {
         if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getWidth()-1, mob.getWidth()-1, 'x')) {
-            if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight()-1, mob.getHeight()-1, 'y')) {
+            if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight()+1, mob.getHeight()-1, 'y')) {
                 mob.hit(cowboy);
                 mobile.remove(mob);
                 return true;
@@ -225,7 +225,7 @@ public class Arena {
         if(type == 'x')
             return a.getX() + whA > b.getX() && a.getX() < b.getX() + whB;
         else if(type == 'y')
-            return a.getY() + whA > b.getY() && a.getY() < b.getY() + whB;
+            return a.getY() - whA < b.getY() && a.getY() > b.getY() - whB;
         return false;
     }
 }

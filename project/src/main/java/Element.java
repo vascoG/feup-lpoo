@@ -42,7 +42,7 @@ public abstract class Element {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         while (reader.ready()) {
             String line = reader.readLine();
-            List<Character> newL = new ArrayList<Character>();
+            List<Character> newL = new ArrayList<>();
             int curwidth = 0;
             for(Character c: line.toCharArray()) {
                 newL.add(c);

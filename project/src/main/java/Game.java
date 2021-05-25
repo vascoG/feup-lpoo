@@ -72,7 +72,7 @@ public class Game {
                 if (nseconds > seconds+1) {
                     seconds = nseconds;
                     arena.spawnObjects();
-                    if (seconds % 20 == 0) {
+                    if (seconds % 10 == 0) {
                         arena.switchTime();
                         arena.cleanupObjs();
                         FPS += 10;
