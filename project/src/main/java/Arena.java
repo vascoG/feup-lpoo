@@ -23,9 +23,9 @@ public class Arena {
   
     private SunMoon sunmoon;
 
-    public SunMoon getSunmoon() {
-        return sunmoon;
-    }
+    private Health health;
+
+    private LifeDisplayer lf;
 
     private List<MobileObject> mobile;
 
@@ -39,17 +39,23 @@ public class Arena {
         return night;
     }
 
+    public SunMoon getSunmoon() {
+        return sunmoon;
+    }
+
     public Arena(int width, int height, int floor) throws IOException {
         night = false;
         this.width = width;
         this.height = height;
         floorH = floor;
-        this.arenaDrawer = new ArenaDrawer(this);
-
+        arenaDrawer = new ArenaDrawer(this);
         mobile = new ArrayList<MobileObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
         sunmoon = new SunMoon(new Position(width-10, 6));
         score = new Score(new Position(10 ,6));
+        lf = new LifeDisplayer(new Position(50, 10));
+        health = new Health(3);
+
     }
 
     public int getWidth() {
@@ -112,6 +118,22 @@ public class Arena {
 
     public void updateScore() {
         this.score.updateScore();
+    }
+
+    public Health getHealth() {
+        return health;
+    }
+
+    public void setHealth(Health health) {
+        this.health = health;
+    }
+
+    public LifeDisplayer getLf() {
+        return lf;
+    }
+
+    public void setLf(LifeDisplayer lf) {
+        this.lf = lf;
     }
 
     public void cowboyDown() {

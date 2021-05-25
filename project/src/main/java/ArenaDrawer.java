@@ -19,7 +19,7 @@ public class ArenaDrawer {
         //drawFixed(gui);
         drawMobiled(gui, arena.getMobile());
         drawCowboy(gui, arena.getCowboy());
-
+        drawHealth(gui,arena.getLf());
     }
 
     private void drawCowboy(GUI gui, Cowboy cowboy) {
@@ -32,6 +32,10 @@ public class ArenaDrawer {
         }
     }
 
+    private void drawHealth(GUI gui , LifeDisplayer lf)
+    {
+        lf.displayHealth(gui, arena.getHealth());
+    }
     /**private void drawFixed(GUI gui) {
         arena.getSunmoon().draw(gui);
 
@@ -49,6 +53,8 @@ public class ArenaDrawer {
         gui.fillRectangle(new Position(0, arena.getHeight()- arena.getFloorH()), new Position(arena.getWidth(), arena.getFloorH()), "#5e3a14", ' ');
         arena.getSunmoon().draw(gui);
         arena.getScore().draw(gui, background);
+
+
         /**graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(arena.getWidth(), arena.getHeight()), ' ');
         graphics.setBackgroundColor(TextColor.Factory.fromString("#5e3a14"));
