@@ -34,7 +34,7 @@ public class ArenaDrawer {
 
     private void drawHealth(GUI gui , LifeDisplayer lf)
     {
-        lf.displayHealth(gui, arena.getHealth());
+        lf.displayHealth(gui, arena.getCowboy().getHealth());
     }
     /**private void drawFixed(GUI gui) {
         arena.getSunmoon().draw(gui);
