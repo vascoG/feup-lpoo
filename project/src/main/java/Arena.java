@@ -124,8 +124,8 @@ public class Arena {
         return health;
     }
 
-    public void setHealth(Health health) {
-        this.health = health;
+    public void setHealth(int health) {
+        this.health.setCurrentHealth(health);
     }
 
     public LifeDisplayer getLf() {
@@ -217,6 +217,8 @@ public class Arena {
         for(int i = 0; i < mobile.size(); i++) {
             if(checkForHit(mobile.get(i))) {
                 i--;
+
+                setHealth(getHealth().getCurrentHealth() - 1);
             }
         }
     }
