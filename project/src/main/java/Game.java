@@ -60,38 +60,39 @@ public class Game {
                 long nseconds = startTime / 1000;
                 if (nseconds > seconds) {
                     seconds = nseconds;
+                    arena.spawnObjects();
                     if (seconds % 20 == 0) {
                         arena.switchTime();
                         arena.cleanupObjs();
                         FPS += 10;
                     }
-                    if (jumping) {
-                        arena.getCowboy().pos.y--;
-                        if (arena.getCowboy().yInitial - 10 >= arena.getCowboy().pos.y) {
-                            jumping = false;
-                            jumpingDown = true;
-                        }
+                }
+                if (jumping) {
+                    arena.getCowboy().pos.y--;
+                    if (arena.getCowboy().yInitial - 10 >= arena.getCowboy().pos.y) {
+                        jumping = false;
+                        jumpingDown = true;
                     }
-                    if (doubleJumping) {
-                        arena.getCowboy().pos.y--;
-                        if (arena.getCowboy().yInitial - 16 >= arena.getCowboy().pos.y) {
-                            doubleJumping = false;
-                            jumpingDown = true;
-                        }
-                    } else if (jumpingDown) {
-                        arena.getCowboy().pos.y++;
-                        if (arena.getCowboy().yInitial == arena.getCowboy().pos.y)
-                            jumpingDown = false;
+                }
+                if (doubleJumping) {
+                    arena.getCowboy().pos.y--;
+                    if (arena.getCowboy().yInitial - 16 >= arena.getCowboy().pos.y) {
+                        doubleJumping = false;
+                        jumpingDown = true;
                     }
-                    arena.spawnObjects();
-                    arena.moveMobiles();
-                    arena.iterateCollisions();
-                    draw();
-                    switch (gui.getNextMovement()) {
-                        case UP:
-                            if (!jumpingDown)
-                                jumping = true;
-                            break;
+                } else if (jumpingDown) {
+                    arena.getCowboy().pos.y++;
+                    if (arena.getCowboy().yInitial == arena.getCowboy().pos.y)
+                        jumpingDown = false;
+                }
+                arena.moveMobiles();
+                arena.iterateCollisions();
+                draw();
+                switch (gui.getNextMovement()) {
+                    case UP:
+                        if (!jumpingDown)
+                            jumping = true;
+                        break;
                         case DOWN:
                             arena.cowboyDown();
                             break;
@@ -112,7 +113,6 @@ public class Game {
                         if (sleepTime > 0) Thread.sleep(sleepTime);
                     } catch (InterruptedException e) {
                     }
-                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

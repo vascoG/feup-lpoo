@@ -192,18 +192,22 @@ public class Arena {
     }
 
     public void iterateCollisions() {
-        for(MobileObject mob: mobile) {
-            checkForHit(mob);
+        for(int i = 0; i < mobile.size(); i++) {
+            if(checkForHit(mobile.get(i))) {
+                i--;
+            }
         }
     }
 
-    private void checkForHit(MobileObject mob) {
+    private boolean checkForHit(MobileObject mob) {
         if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getWidth(), mob.getWidth(), 'x')) {
             if(collCheck(cowboy.getPos(), mob.getPos(), cowboy.getHeight(), mob.getHeight(), 'y')) {
                 mob.hit(cowboy);
                 mobile.remove(mob);
+                return true;
             }
         }
+        return false;
     }
 
     private boolean collCheck(Position a, Position b, int whA, int whB, Character type) {
