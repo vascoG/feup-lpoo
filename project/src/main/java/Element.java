@@ -66,7 +66,6 @@ public abstract class Element {
                     continue;
                 }
                 gui.drawObj(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour);
-                //se calhar usamos so quadrados e em função da letra definia uma cor de fundo
             }
         }
     }

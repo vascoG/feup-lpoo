@@ -76,11 +76,12 @@ public class LanternaGUI implements GUI{
 
 
     }
+
     @Override
     public void drawObj(Position position, String text, String color) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(TextColor.Factory.fromString(color));
-        textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
+        textGraphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         textGraphics.putString(position.getX(),position.getY(),text);
 
 

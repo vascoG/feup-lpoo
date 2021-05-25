@@ -40,16 +40,9 @@ public class LifeDisplayer extends FixedObject{
 
     private void drawCorazons(GUI gui ,int number)
     {
-        for(int line = sprite.size()-1; line >= 0; line--) {
-            for(int col = 0; col < sprite.get(line).size(); col++) {
-                Character ch = sprite.get(line).get(col);
-                if(ch == '?') {
-                    continue;
-                }
-                gui.drawObj(new Position(pos.getX()+col + number, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour);
-                //se calhar usamos so quadrados e em função da letra definia uma cor de fundo
-            }
-        }
+        pos.x += number;
+        super.draw(gui);
+        pos.x -= number;
     }
 
 

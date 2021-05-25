@@ -130,10 +130,6 @@ public class Arena {
         cowboy.moveDown();
     }
 
-    public void cowboyJump() {
-        cowboy.moveUp();
-    }
-  
     public void moveMobiles() {
         for(int i = 0; i < mobile.size(); i++) {
             MobileObject newM = mobile.get(i);

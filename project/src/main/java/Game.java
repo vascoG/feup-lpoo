@@ -105,7 +105,11 @@ public class Game {
                             jumping = true;
                         break;
                         case DOWN:
-                            arena.cowboyDown();
+                            if(jumping || doubleJumping) {
+                                jumping = false;
+                                doubleJumping = false;
+                                jumpingDown = true;
+                            }
                             break;
                         case DOUBLEUP:
                             if (!jumpingDown)
