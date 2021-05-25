@@ -23,7 +23,7 @@ public class Arena {
   
     private SunMoon sunmoon;
 
-    private Health health;
+
 
     private LifeDisplayer lf;
 
@@ -54,8 +54,6 @@ public class Arena {
         sunmoon = new SunMoon(new Position(width-10, 6));
         score = new Score(new Position(10 ,6));
         lf = new LifeDisplayer(new Position(50, 10));
-        health = new Health(3);
-
     }
 
     public int getWidth() {
@@ -113,20 +111,11 @@ public class Arena {
     }
 
     public Score getScore() {
+        score.updateScore(cowboy.coinsCollected);
         return score;
     }
 
-    public void updateScore() {
-        this.score.updateScore();
-    }
 
-    public Health getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health.setCurrentHealth(health);
-    }
 
     public LifeDisplayer getLf() {
         return lf;
@@ -217,8 +206,6 @@ public class Arena {
         for(int i = 0; i < mobile.size(); i++) {
             if(checkForHit(mobile.get(i))) {
                 i--;
-
-                setHealth(getHealth().getCurrentHealth() - 1);
             }
         }
     }

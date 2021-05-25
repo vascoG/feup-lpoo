@@ -48,6 +48,7 @@ public class Game {
 
 
     public void run() {
+
         int FPS = 30;
         int frametime = 1000 / FPS;
         boolean jumping = false;
@@ -55,9 +56,19 @@ public class Game {
         boolean doubleJumping = false;
         long seconds = 0;
         while (true) {
+
+
+
             try {
+
                 long startTime = System.currentTimeMillis();
                 long nseconds = startTime / 1000;
+
+                if(arena.getCowboy().getHealth().getCurrentHealth() == 0)
+                {
+                    gui.close();
+                }
+
                 if (nseconds > seconds+1) {
                     seconds = nseconds;
                     arena.spawnObjects();

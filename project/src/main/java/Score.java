@@ -63,9 +63,9 @@ public class Score extends FixedObject{
         return sprite_copy;
     }
 
-    public void updateScore()
+    public void updateScore(int score)
     {
-        score++;
+        this.score = score;
     }
 
 
