@@ -58,7 +58,7 @@ public class Game {
             try {
                 long startTime = System.currentTimeMillis();
                 long nseconds = startTime / 1000;
-                if (nseconds > seconds) {
+                if (nseconds > seconds+1) {
                     seconds = nseconds;
                     arena.spawnObjects();
                     if (seconds % 20 == 0) {
@@ -69,14 +69,14 @@ public class Game {
                 }
                 if (jumping) {
                     arena.getCowboy().pos.y--;
-                    if (arena.getCowboy().yInitial - 10 >= arena.getCowboy().pos.y) {
+                    if (arena.getCowboy().yInitial - 15 >= arena.getCowboy().pos.y) {
                         jumping = false;
                         jumpingDown = true;
                     }
                 }
                 if (doubleJumping) {
                     arena.getCowboy().pos.y--;
-                    if (arena.getCowboy().yInitial - 16 >= arena.getCowboy().pos.y) {
+                    if (arena.getCowboy().yInitial - 20 >= arena.getCowboy().pos.y) {
                         doubleJumping = false;
                         jumpingDown = true;
                     }
