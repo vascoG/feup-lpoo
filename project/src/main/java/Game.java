@@ -127,6 +127,7 @@ public class Game {
                     try {
                         if (sleepTime > 0) Thread.sleep(sleepTime);
                     } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
             } catch (IOException e) {
                 e.printStackTrace();

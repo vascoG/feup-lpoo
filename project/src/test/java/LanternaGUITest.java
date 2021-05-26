@@ -60,7 +60,7 @@ class LanternaGUITest {
 
     @Test
     void drawObj() {
-        gui.drawObj(new Position(5,5),"X","#336699");
+        gui.drawObj(new Position(5,5),"X","#336699", "#336699");
 
         Mockito.verify(textGraphics,Mockito.times(1)).setForegroundColor(new TextColor.RGB(51,102,153));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(5,5,"X");
