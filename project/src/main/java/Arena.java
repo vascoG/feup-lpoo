@@ -29,8 +29,6 @@ public class Arena {
 
     private List<MobileObject> mobile;
 
-    private ArenaDrawer arenaDrawer;
-
     private int floorH;
 
     private boolean night;
@@ -48,7 +46,6 @@ public class Arena {
         this.width = width;
         this.height = height;
         floorH = floor;
-        arenaDrawer = new ArenaDrawer(this);
         mobile = new ArrayList<MobileObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
         sunmoon = new SunMoon(new Position(width-10, 6));
@@ -84,13 +81,6 @@ public class Arena {
         this.cowboy = cowboy;
     }
 
-    /**public List<FixedObject> getFixed() {
-        return fixed;
-    }
-
-    public void setFixed(List<FixedObject> fixed) {
-        this.fixed = fixed;
-    }**/
 
     public List<MobileObject> getMobile() {
         return mobile;
@@ -100,15 +90,6 @@ public class Arena {
         this.mobile = mobile;
     }
 
-
-    public ArenaDrawer getArenaDrawer() {
-        return arenaDrawer;
-    }
-
-    public void setArenaDrawer(ArenaDrawer arenaDrawer) {
-        this.arenaDrawer = arenaDrawer;
-
-    }
 
     public Score getScore() {
         score.updateScore(cowboy.coinsCollected);

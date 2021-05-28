@@ -21,14 +21,15 @@ public class Game {
 
 
     private GUI gui;
-    private KeyStroke key;
     private Arena arena;
+    private ArenaDrawer arenaDrawer;
 
     public Game() {
 
         try {
             gui = new LanternaGUI(150, 40);
             arena = new Arena(150,40, 7);
+            arenaDrawer = new ArenaDrawer(arena);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,7 +41,7 @@ public class Game {
     private void draw() throws IOException
     {
         gui.clear();
-        arena.getArenaDrawer().draw(gui);
+        arenaDrawer.draw(gui);
         gui.refresh();
     }
 
