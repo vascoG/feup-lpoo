@@ -13,7 +13,7 @@ public class Arena {
     private Cowboy cowboy;
 
     private Score score;
-  
+
     private SunMoon sunmoon;
 
     private LifeDisplayer lf;
@@ -38,6 +38,10 @@ public class Arena {
 
     public SunMoon getSunmoon() {
         return sunmoon;
+    }
+
+    public void setSunmoon(SunMoon sunmoon) {
+        this.sunmoon = sunmoon;
     }
 
     public Arena(int width, int height, int floor) throws IOException {

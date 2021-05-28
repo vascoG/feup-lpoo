@@ -12,10 +12,7 @@ public class ArenaController {
         doubleJumping = false;
         jumpingDown = false;
     }
-    private void cowboyDown() {
-        if(arena.getCowboy().getPos().getY()>arena.getCowboy().yInitial)
-            arena.getCowboy().moveDown();
-    }
+
     private void moveMobiles() {
         for(int i = 0; i < arena.getMobile().size(); i++) {
             MobileObject newM = arena.getMobile().get(i);
@@ -135,7 +132,7 @@ public class ArenaController {
     public void updateMobiles()
     {
         moveMobiles();
-        iterateCollisions();
+            iterateCollisions();
     }
 
     public boolean nextMove(GUI.MOVEMENT movement)
