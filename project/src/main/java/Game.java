@@ -54,24 +54,30 @@ public class Game {
 
         int FPS = 30;
         int frametime = 1000 / FPS;
+        long acculmillis = 0;
+        long millistospawn = 2000;
         long seconds = 0;
+        long initTime = System.currentTimeMillis();
         while (true) {
             try {
-                long startTime = System.currentTimeMillis();
-                long nseconds = startTime / 1000;
+                long startTime = System.currentTimeMillis() - initTime;
                 if(arena.isCowboyDead())
                 {
                     gui.close();
                     return;
                 }
-                if (nseconds > seconds+1) {
-                    seconds = nseconds;
+                if (acculmillis > millistospawn) {
+                    acculmillis = 0;
                     arenaController.spawnObjects();
-                    if (seconds % 10 == 0) {
-                        arenaController.switchTime();
-                        arenaController.cleanupObjs();
-                        FPS += 10;
-                        frametime = 1000 / FPS;
+                    arenaController.cleanupObjs();
+                    if ((startTime/1000) > seconds) {
+                        seconds = startTime/1000;
+                        if(seconds % 10 == 0) {
+                            arenaController.switchTime();
+                            FPS += 5;
+                            millistospawn *= 0.9;
+                            frametime = 1000 / FPS;
+                        }
                     }
                 }
                 arenaController.updateCowboy();
@@ -81,12 +87,16 @@ public class Game {
                     gui.close();
                     return;
                 }
-                long elaspedTime = System.currentTimeMillis() - startTime;
+                long elaspedTime = (System.currentTimeMillis()-initTime) - startTime;
+                acculmillis += elaspedTime;
                 long sleepTime = frametime - elaspedTime;
-                try {
-                    if (sleepTime > 0) Thread.sleep(sleepTime);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if(sleepTime > 0) {
+                    acculmillis+=sleepTime;
+                    try {
+                        Thread.sleep(sleepTime);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();

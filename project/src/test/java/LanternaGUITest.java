@@ -52,7 +52,7 @@ class LanternaGUITest {
 
     @Test
     void drawText() {
-        gui.drawText(new Position(5,5),"testing","#336699");
+        gui.drawText(new Position(5,5),"testing","#336699","#000000");
 
         Mockito.verify(textGraphics,Mockito.times(1)).setBackgroundColor(new TextColor.RGB(51,102,153));
         Mockito.verify(textGraphics, Mockito.times(1)).putString(5,5,"testing");

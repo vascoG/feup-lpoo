@@ -27,6 +27,7 @@ public class Arena {
     public boolean isNight() {
         return night;
     }
+
     public void setDay(){
         night=false;
     }
@@ -52,7 +53,7 @@ public class Arena {
         mobile = new ArrayList<MobileObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
         sunmoon = new SunMoon(new Position(width-10, 6));
-        score = new Score(new Position(10 ,3));
+        score = new Score(new Position(3 ,7));
         lf = new LifeDisplayer(new Position(50, 10));
     }
 
@@ -93,8 +94,7 @@ public class Arena {
         this.mobile = mobile;
     }
 
-
-    public Score getScore() {
+    public Score getScore() throws IOException {
         score.updateScore(cowboy.coinsCollected);
         return score;
     }
