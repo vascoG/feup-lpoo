@@ -16,26 +16,9 @@ public class LifeDisplayer extends FixedObject{
 
     public void displayHealth(GUI gui , Health health)
     {
-
-        switch(health.getCurrentHealth())
-        {
-            case 1:
-                drawCorazons(gui,0);
-                break;
-            case 2:
-                drawCorazons(gui,0);
-                drawCorazons(gui, 15);
-                break;
-            case 3:
-                drawCorazons(gui,0);
-                drawCorazons(gui, 15);
-                drawCorazons(gui, 30);
-                break;
-            default:
-                break;
+        for(int i = 0; i < health.getCurrentHealth(); i++) {
+            drawCorazons(gui, i*15);
         }
-
-
     }
 
     private void drawCorazons(GUI gui ,int number)
