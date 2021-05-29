@@ -3,6 +3,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ArenaDrawer {
@@ -13,8 +14,7 @@ public class ArenaDrawer {
         this.arena = arena;
     }
 
-    public void draw(GUI gui)
-    {
+    public void draw(GUI gui) throws IOException {
         drawArena(gui);
         //drawFixed(gui);
         drawMobiled(gui, arena.getMobile());
@@ -43,7 +43,7 @@ public class ArenaDrawer {
     }**/
 
 
-    private void drawArena(GUI gui){
+    private void drawArena(GUI gui) throws IOException {
         String background;
         if(arena.day())
             background = "#ffb700";
@@ -53,6 +53,9 @@ public class ArenaDrawer {
         gui.fillRectangle(new Position(0, arena.getHeight()- arena.getFloorH()), new Position(arena.getWidth(), arena.getFloorH()), "#5e3a14", ' ');
         arena.getSunmoon().draw(gui);
         arena.getScore().draw(gui, background);
+        arena.getFirstD().draw(gui,background);
+        arena.getSecondD().draw(gui,background);
+        arena.getThirdD().draw(gui,background);
 
 
         /**graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));

@@ -14,6 +14,8 @@ public class Arena {
 
     private Score score;
 
+    private Number firstD,secondD,thirdD;
+
     private SunMoon sunmoon;
 
     private LifeDisplayer lf;
@@ -27,6 +29,7 @@ public class Arena {
     public boolean isNight() {
         return night;
     }
+
     public void setDay(){
         night=false;
     }
@@ -52,7 +55,10 @@ public class Arena {
         mobile = new ArrayList<MobileObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
         sunmoon = new SunMoon(new Position(width-10, 6));
-        score = new Score(new Position(10 ,3));
+        score = new Score(new Position(1 ,5));
+        firstD = new Number(new Position(25 ,4), 0);
+        secondD = new Number(new Position(30,4), 0);
+        thirdD = new Number(new Position(35 ,4),0);
         lf = new LifeDisplayer(new Position(50, 10));
     }
 
@@ -94,8 +100,20 @@ public class Arena {
     }
 
 
-    public Score getScore() {
-        score.updateScore(cowboy.coinsCollected);
+    public Number getFirstD() {
+        return firstD;
+    }
+
+    public Number getSecondD() {
+        return secondD;
+    }
+
+    public Number getThirdD() {
+        return thirdD;
+    }
+
+    public Score getScore() throws IOException {
+        score.updateScore(cowboy.coinsCollected,firstD,secondD,thirdD);
         return score;
     }
 
