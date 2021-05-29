@@ -52,10 +52,7 @@ public class ArenaDrawer {
         gui.fillRectangle(new Position(0, 0), new Position(arena.getWidth(), arena.getHeight()), background, ' ');
         gui.fillRectangle(new Position(0, arena.getHeight()- arena.getFloorH()), new Position(arena.getWidth(), arena.getFloorH()), "#5e3a14", ' ');
         arena.getSunmoon().draw(gui);
-        arena.getScore().draw(gui, background);
-        arena.getFirstD().draw(gui,background);
-        arena.getSecondD().draw(gui,background);
-        arena.getThirdD().draw(gui,background);
+        arena.getScore().draw(gui);
 
 
         /**graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));

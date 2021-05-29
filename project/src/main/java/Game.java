@@ -55,17 +55,18 @@ public class Game {
         int FPS = 30;
         int frametime = 1000 / FPS;
         long seconds = 0;
+        long initTime = System.currentTimeMillis();
         while (true) {
             try {
                 long startTime = System.currentTimeMillis();
-                long nseconds = startTime / 1000;
+                double nseconds = (startTime-initTime) / 1000;
                 if(arena.isCowboyDead())
                 {
                     gui.close();
                     return;
                 }
-                if (nseconds > seconds+1) {
-                    seconds = nseconds;
+                if (nseconds > seconds) {
+                    seconds = Math.round(nseconds);
                     arenaController.spawnObjects();
                     if (seconds % 10 == 0) {
                         arenaController.switchTime();

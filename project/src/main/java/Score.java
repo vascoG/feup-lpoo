@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 public class Score extends FixedObject{
 
     private int score;
+    private Number firstD, secondD, thirdD;
 
 
     public Score(Position pos) throws IOException {
@@ -17,24 +18,22 @@ public class Score extends FixedObject{
 
         colour = "#000000";
 
+        firstD = new Number(new Position(pos.getX()+width+1, pos.getY()));
+        secondD = new Number(new Position(firstD.getPos().getX()+firstD.getWidth(),pos.getY()));
+        thirdD = new Number(new Position(secondD.getPos().getX()+secondD.getWidth(),pos.getY()));
+
     }
 
 
-    public void draw(GUI gui,String background) {
-        //draws from bottom to top
-        for(int line = sprite.size()-1; line >= 0; line--) {
-            for(int col = 0; col < sprite.get(line).size(); col++) {
-                Character ch = sprite.get(line).get(col);
-                if(ch == '?') {
-                    continue;
-                }
-                gui.drawText(new Position(pos.getX()+col, pos.getY()-(sprite.size()-line)), String.valueOf(ch), colour,background);
-            }
-        }
+    public void draw(GUI gui) {
+        super.draw(gui);
+        firstD.draw(gui);
+        secondD.draw(gui);
+        thirdD.draw(gui);
     }
 
 
-    public void updateScore(int score, Number firstD, Number secondD, Number thirdD) throws IOException {
+    public void updateScore(int score) {
         this.score = score;
 
         thirdD.setN(score % 10);

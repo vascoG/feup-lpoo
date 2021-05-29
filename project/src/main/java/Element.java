@@ -39,7 +39,8 @@ public abstract class Element {
         this.pos = pos;
     }
 
-    public void readSpriteFromFile(String filename) throws IOException {
+    public List<List<Character>> readSpriteFromFile(String filename) throws IOException {
+        List<List<Character>> newSprite = new ArrayList<List<Character>>();
         InputStream is = getClass().getClassLoader().getResourceAsStream(filename);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         while (reader.ready()) {
@@ -52,9 +53,11 @@ public abstract class Element {
             }
             if(curwidth > width)
                 width = curwidth;
-            sprite.add(newL);
+            newSprite.add(newL);
             height++;
         }
+        sprite = newSprite;
+        return newSprite;
     }
 
 
