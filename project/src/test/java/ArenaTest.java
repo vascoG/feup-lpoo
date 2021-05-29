@@ -40,43 +40,4 @@ class ArenaTest {
     void getFloorH() {
         Assertions.assertEquals(7,arena.getFloorH());
     }
-
-    /*
-    @Test
-    void setCowboy() throws IOException {
-        arena.setCowboy(new Cowboy(new Position(5,5),new Health(4)));
-        Assertions.assertEquals(4,arena.getCowboy().getHealth());
-    }
-    */
-    @Test
-    void getFixed() {
-    }
-
-    @Test
-    void setFixed() {
-    }
-
-    @Test
-    void getMobile() {
-    }
-
-    @Test
-    void setMobile() {
-    }
-
-    @Test
-    void getArenaDrawer() {
-    }
-
-    @Test
-    void setArenaDrawer() {
-    }
-
-    @Test
-    void cowboyDown() {
-    }
-
-    @Test
-    void cowboyJump() {
-    }
 }
