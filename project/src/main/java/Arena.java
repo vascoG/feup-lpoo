@@ -49,7 +49,7 @@ public class Arena {
         mobile = new ArrayList<MobileObject>();
         cowboy = new Cowboy(new Position(10, height-floorH), new Health(3));
         sunmoon = new SunMoon(new Position(width-10, 6));
-        score = new Score(new Position(10 ,6));
+        score = new Score(new Position(10 ,3));
         lf = new LifeDisplayer(new Position(50, 10));
     }
 
