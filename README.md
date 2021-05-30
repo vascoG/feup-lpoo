@@ -10,7 +10,7 @@ O objectivo do jogo é ir coletando tokens, que contribuem para o score final do
 
 ## Gif Jogo :
 
-![alt text](https://https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/gif_jogo.gif "Wild West Stickman")
+![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/gif_jogo.gif?raw=true)
 
 
 
