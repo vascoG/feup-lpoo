@@ -266,6 +266,17 @@ As classes referidas são as seguintes:
 
 Este padrão permite cada classe tenha a sua responsabilidade e garante que para mudar como a arena é representada, ou o modo como é desenhada ou o seu funcionamento, é preciso apenas mudar uma classe.
 
+***Code Smells* conhecidos**
+
+##### Long Method
+
+O método [run()](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/1802d2a3eeafae0967ce1f727cd984848af19a67/project/src/main/java/Game.java#L51-L105) é um método longo.
+Uma possível maneira de melhorar seria extrair parte do código para outro método e chamá-lo no run().
+
+##### Switch Statements
+
+O método [getNextMovement()](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/1802d2a3eeafae0967ce1f727cd984848af19a67/project/src/main/java/LanternaGUI.java#L56-L72) usa uma sequência de *if* seguidos.
+Este *code smell* não tem uma solução fácil, visto que é necessário testar os vários inputs do jogador que terão efeitos diferentes no jogo.
 
 **Diagrama UML**
 
