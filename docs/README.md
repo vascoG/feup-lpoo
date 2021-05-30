@@ -89,10 +89,13 @@ Em relação à dificuldade do jogo, ao longo do jogo a velocidade da passagem d
 **Padrões de Design**
 
 	##### Problema no Contexto
-		O jogo utiliza o Lanterna como ferramenta para desenhar os vários elementos. No entanto, não queríamos que a classe Element dependesse diretamente do Lanterna, visto que seria uma violação ao ***The Dependency Inversion Principle***. Outro princípio que queríamos seguir era o ***The Interface Segregation Principle*** para que o nosso jogo tivesse uma implementação concreta da interface GUI.
+		O jogo utiliza o Lanterna como ferramenta para desenhar os vários elementos. 
+		No entanto, não queríamos que a classe Element dependesse diretamente do Lanterna, visto que seria uma violação ao ***The Dependency Inversion Principle***. 
+		Outro princípio que queríamos seguir era o ***The Interface Segregation Principle*** para que o nosso jogo tivesse uma implementação concreta da interface GUI.
 
 	##### O Padrão
-		Para este problema, aplicamos o padrão de design ***Adapter***. Este padrão permite que as classes que necessitem do Lanterna usem métodos mais simples em vez de trabalharem diretamente com os métodos do Lanterna.
+		Para este problema, aplicamos o padrão de design ***Adapter***. 
+		Este padrão permite que as classes que necessitem do Lanterna usem métodos mais simples em vez de trabalharem diretamente com os métodos do Lanterna.
 
 	##### Implementação
 		A imagem seguinte demonstra como é que o padrão de design foi implementado
