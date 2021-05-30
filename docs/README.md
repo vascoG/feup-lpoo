@@ -1,7 +1,7 @@
 LPOO_<4><1>
 ===============
 
-##Wild West StickMan
+#### Wild West StickMan
 
 **Breve descrição do Jogo:**
 
@@ -277,6 +277,22 @@ Uma possível maneira de melhorar seria extrair parte do código para outro mét
 
 O método [getNextMovement()](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/1802d2a3eeafae0967ce1f727cd984848af19a67/project/src/main/java/LanternaGUI.java#L56-L72) usa uma sequência de *if* seguidos.
 Este *code smell* não tem uma solução fácil, visto que é necessário testar os vários inputs do jogador que terão efeitos diferentes no jogo.
+
+
+**Screenshot of coverage report**
+
+![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/CoverageTests1.png?raw=true)
+
+![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/CoverageTests2.png?raw=true)
+
+**Self Evaluation**
+
+Vasco Gomes (up201906617@fe.up.pt) -> 33 %
+
+João Silva (up201906478@fe.up.pt) -> 	33 %
+
+Duarte Sardão (up201905497@fe.up.pt) -> 33 %
+
 
 **Diagrama UML**
 
