@@ -8,6 +8,9 @@ Este projeto é parcialmente baseado no clássico offline **T-REX game**, jogo i
 
 O objectivo do jogo é ir coletando tokens, que contribuem para o score final do utilizador, enquanto que a personagem principal do jogo, neste caso uma espécie de stickman, corre pelo deserto até ficar sem vidas. Ao longo do jogo existem vários obstáculos diferentes com comportamentos diferentes em contacto com a personagem.
 
+## Gif Jogo :
+
+![alt text](https://https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/gif_jogo.gif "Wild West Stickman")
 
 
 
