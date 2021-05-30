@@ -99,12 +99,16 @@ Este padrão permite que as classes que necessitem do Lanterna usem métodos mai
 
 ##### Implementação
 A imagem seguinte demonstra como é que o padrão de design foi implementado
+
 ![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/adapter.png?raw=true)
 		
 As classes referidas são as seguintes:
 [Element](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/Element.java)
+
 [LanternaGUI](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/LanternaGUI.java)
+
 [GUI](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/GUI.java)
+
 [Lanterna](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/f45ab66d791b5e5cc28f3ade897d0dd39f08380b/project/src/main/java/LanternaGUI.java#L1-L10)
 	
 ##### Consequências
