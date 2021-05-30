@@ -42,9 +42,7 @@ public class Game {
 
     private void draw() throws IOException
     {
-        gui.clear();
         arenaDrawer.draw(gui);
-        gui.refresh();
     }
 
 

@@ -15,11 +15,12 @@ public class ArenaDrawer {
     }
 
     public void draw(GUI gui) throws IOException {
+        gui.clear();
         drawArena(gui);
-        //drawFixed(gui);
         drawMobiled(gui, arena.getMobile());
         drawCowboy(gui, arena.getCowboy());
         drawHealth(gui,arena.getLf());
+        gui.refresh();
     }
 
     private void drawCowboy(GUI gui, Cowboy cowboy) {
@@ -36,12 +37,6 @@ public class ArenaDrawer {
     {
         lf.displayHealth(gui, arena.getCowboy().getHealth());
     }
-    /**private void drawFixed(GUI gui) {
-        arena.getSunmoon().draw(gui);
-
-        arena.getScore().draw(gui, arena.isNight());
-    }**/
-
 
     private void drawArena(GUI gui) throws IOException {
         String background;
@@ -53,12 +48,5 @@ public class ArenaDrawer {
         gui.fillRectangle(new Position(0, arena.getHeight()- arena.getFloorH()), new Position(arena.getWidth(), arena.getFloorH()), "#5e3a14", ' ');
         arena.getSunmoon().draw(gui);
         arena.getScore().draw(gui);
-
-
-        /**graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));
-        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(arena.getWidth(), arena.getHeight()), ' ');
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#5e3a14"));
-        graphics.fillRectangle(new TerminalPosition(0, arena.getHeight()- arena.getFloorH()), new TerminalSize(arena.getWidth(), arena.getFloorH()), ' ');
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#ffb700"));**/
     }
 }
