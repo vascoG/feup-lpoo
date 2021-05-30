@@ -114,21 +114,25 @@ são representadas graficamente por 3 corações desenhados na tela de jogo.
 **Padrões de Design**
 
 ## 1º
+
 ##### Problema no Contexto
-	O jogo utiliza o Lanterna como ferramenta para desenhar os vários elementos. 
-	No entanto, não queríamos que a classe Element dependesse diretamente do Lanterna, visto que seria uma violação ao ***The Dependency Inversion Principle***. 
-	Outro princípio que queríamos seguir era o ***The Interface Segregation Principle*** para que o nosso jogo tivesse uma implementação concreta da interface GUI.
+
+O jogo utiliza o Lanterna como ferramenta para desenhar os vários elementos. 
+No entanto, não queríamos que a classe Element dependesse diretamente do Lanterna, visto que seria uma violação ao ***The Dependency Inversion Principle***. 
+Outro princípio que queríamos seguir era o ***The Interface Segregation Principle*** para que o nosso jogo tivesse uma implementação concreta da interface GUI.
 
 ##### O Padrão
-	Para este problema, aplicamos o padrão de design **Adapter**. 
-	Este padrão permite que as classes que necessitem do Lanterna usem métodos mais simples em vez de trabalharem diretamente com os métodos do Lanterna.
+
+Para este problema, aplicamos o padrão de design **Adapter**. 
+Este padrão permite que as classes que necessitem do Lanterna usem métodos mais simples em vez de trabalharem diretamente com os métodos do Lanterna.
 
 ##### Implementação
-	A imagem seguinte demonstra como é que o padrão de design foi implementado
+
+A imagem seguinte demonstra como é que o padrão de design foi implementado
 
 ![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/adapter.png?raw=true)
 		
-	As classes referidas são as seguintes:
+As classes referidas são as seguintes:
 
 [Element](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/Element.java)
 
@@ -139,27 +143,33 @@ são representadas graficamente por 3 corações desenhados na tela de jogo.
 [Lanterna](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/f45ab66d791b5e5cc28f3ade897d0dd39f08380b/project/src/main/java/LanternaGUI.java#L1-L10)
 	
 ##### Consequências
-	O uso deste padrão permitiu-nos trabalhar com a implementação da interface feita por nós(LanternaGUI) em vez de trabalharmos diretamente com o Lanterna, o que é uma vantagem, visto que tem métodos mais simples.
-	Outro benefício deste padrão é o facto que, se por algum motivo, deixarmos de trabalhar com o Lanterna e trabalhássemos com outra libraria, apenas teríamos de criar uma classe que implementasse a interface GUI.
+
+O uso deste padrão permitiu-nos trabalhar com a implementação da interface feita por nós(LanternaGUI) em vez de trabalharmos diretamente com o Lanterna, o que é uma vantagem, visto que tem métodos mais simples.
+Outro benefício deste padrão é o facto que, se por algum motivo, deixarmos de trabalhar com o Lanterna e trabalhássemos com outra libraria, apenas teríamos de criar uma classe que implementasse a interface GUI.
+
 
 ## 2º
+
 ##### Problema no Contexto
-	As consequências de cada colisão em que a personagem participa tem que ser diferentes de acordo com o objeto que colide.
-	A deteção de colisões é uma funcionalidade essencial	e o objetivo seria não condicionar toda informação recorrente a uma
+
+As consequências de cada colisão em que a personagem participa tem que ser diferentes de acordo com o objeto que colide.
+A deteção de colisões é uma funcionalidade essencial	e o objetivo seria não condicionar toda informação recorrente a uma
 colisão numa só função
 
+
 ##### O Padrão
-	Para este problema, aplicamos o padrão de design **Strategy**. 
-	Este padrão permite definir uma família de algoritmos, encapsular cada um e torná-los intercambiáveis. **Strategy** permite que o algoritmo varie dependendo dos clientes que o utilizam.
+
+Para este problema, aplicamos o padrão de design **Strategy**. 
+Este padrão permite definir uma família de algoritmos, encapsular cada um e torná-los intercambiáveis. **Strategy** permite que o algoritmo varie dependendo dos clientes que o utilizam.
 	
 ##### Implementação
-	A imagem seguinte demonstra como é que o padrão de design foi implementado
 
-	![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/Strategy.png?raw=true)
+A imagem seguinte demonstra como é que o padrão de design foi implementado
+
+![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/Strategy.png?raw=true)
 		
-	As classe em que o método hit() é partilhado são as seguintes:
+As classe em que o método hit() é partilhado são as seguintes:
 	
-
 [MobileObjetct](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/MobileObject.java)
 
 [Barrel](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/Barrel.java)
@@ -174,55 +184,88 @@ colisão numa só função
 
 
 ##### Consequências
-	O uso deste padrão permite que o algoritmo de resolução de colisão hit() possa variar consoante o tipo de objeto que
+
+O uso deste padrão permite que o algoritmo de resolução de colisão hit() possa variar consoante o tipo de objeto que
 o está a usar.
 
 
-
 ## 3º
+
 ##### Problema no Contexto
-	Duas das funcionalidades do jogo seria mudar o aspeto de jogo consoante o tempo decorrido(simulando o dia e a noite) e mudar o sprite do score consoante o valor inteiro do score.No entanto, gerenciar comportamentos diferentes existe uma grande complexidade
-no código (dependendo do número de estados) e a sua manutenção tornava-se difícil.
+
+Duas das funcionalidades do jogo seria mudar o aspeto de jogo consoante o tempo decorrido(simulando o dia e a noite) e mudar o sprite do score consoante o valor inteiro do score.
+No entanto, gerenciar comportamentos diferentes existe uma grande complexidade no código (dependendo do número de estados) e a sua manutenção tornava-se difícil.
 
 ##### O Padrão
-	Para este problema, aplicamos o padrão de design **State**. 
-	Este padrão permite mudar o comportamento de um objeto consoante o seu estado (em run-time).
+
+Para este problema, aplicamos o padrão de design **State**. 
+Este padrão permite mudar o comportamento de um objeto consoante o seu estado (em run-time).
 	
 ##### Implementação
 		
-	As classe em que este padrão é aplicado são:
+As classe em que este padrão é aplicado são:
 	
-
 [SunMoon](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/SunMoon.java)
 
 [Number](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/Number.java)
 
 ##### Consequências
-	O uso deste padrão permite que as transições de estado seja na classe SunMoon, em que temos a alternância entre Sol e Lua, ou na
+
+O uso deste padrão permite que as transições de estado seja na classe SunMoon, em que temos a alternância entre Sol e Lua, ou na
 classe Number, em que temos 10 estados e cada estado é um número, sejam explicítas e o código fica assim mais fácil de manter, mesmo 
 depois de executar alterações ou aumentar estados.
 
-
 ## 4º
+
 ##### Problema no Contexto
 	
-	Reprensentar o sprite do valor inteiro do score a partir da representação de cada número.
+Reprensentar o sprite do valor inteiro do score a partir da representação de cada número.
+
 ##### O Padrão
-	Para este problema, aplicamos o padrão de design **Composition**. 
-	Este padrão permite representar um objeto formado pela composição de objetos similares.
+
+Para este problema, aplicamos o padrão de design **Composition**. 
+Este padrão permite representar um objeto formado pela composição de objetos similares.
 	
 ##### Implementação
 		
-	A classe em que este padrão é utilizado é:
-
+A classe em que este padrão é utilizado é:
 
 [Score](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/d738595e940684bebd62934129597ddf49ee96ba/project/src/main/java/Score.java)
 
+##### Consequências
 
+Este padrão permitiu que tratássemos cada número do score como uma sprite própria o score como uma composição de todos os sprites.
+	
+## 5º
+
+##### Problema no Contexto
+
+Ao longo do desenvolvimento do jogo, reparamos que a classe Arena tinha demasiadas responsabilidades, representava a arena, desenhava e controlava o funciomento dos elementos contidos nela.
+Isto viola o ***The Single-responsibility principle*** e tornava o código dentro desta classe muito extenso e confuso.
+
+##### O Padrão
+
+Para este problema, aplicamos o padrão de design **Model View Controller(MVC)**. 
+Este padrão separa as três principais funcionalidades da Arena em três classes diferentes.
+
+##### Implementação
+
+A imagem seguinte demonstra como é que o padrão de design foi implementado
+
+![alt text](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/master/Images/MVC.png?raw=true)
+		
+As classes referidas são as seguintes:
+
+[ArenaDrawer](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/f99089bd9bc7fc6be782c31ea2d4996212917e67/project/src/main/java/ArenaDrawer.java)
+
+[Arena](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/f99089bd9bc7fc6be782c31ea2d4996212917e67/project/src/main/java/Arena.java)
+
+[ArenaController](https://github.com/FEUP-LPOO-2021/lpoo-2021-g41/blob/f99089bd9bc7fc6be782c31ea2d4996212917e67/project/src/main/java/ArenaController.java)
 
 ##### Consequências
-	Este padrão permitiu que tratássemos cada número do score como uma sprite própria o score como uma composição de todos os sprites.
-	
+
+Este padrão permite cada classe tenha a sua responsabilidade e garante que para mudar como a arena é representada, ou o modo como é desenhada ou o seu funcionamento, é preciso apenas mudar uma classe.
+
 
 **Diagrama UML**
 
