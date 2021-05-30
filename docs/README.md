@@ -1,7 +1,7 @@
-LPOO_<4><1> - <PROJECT Wild West StickMan>
+LPOO_<4><1>
 ===============
 
-
+##Wild West StickMan
 
 **Breve descrição do Jogo:**
 
